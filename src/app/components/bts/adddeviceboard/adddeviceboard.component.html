@@ -1,0 +1,54 @@
+<div fxLayout="row"   fxLayout.lt-sm="column"  fxLayoutGap="10px " class="generalclass"  >
+     
+          <div   [class.mat-elevation-z2]="!isActive" [class.mat-elevation-z8]="isActive" fxFlex="30" fxFlex.lt-md="50" fxFlex.lt-sm="100" >
+
+				<form class="example-form">
+				
+
+						<p>
+						  <mat-form-field class="example-full-width">
+								<input matInput placeholder="Bst ID">
+						  </mat-form-field>
+						  <mat-form-field class="example-full-width">
+								<input matInput placeholder="Bst name">
+						  </mat-form-field>
+						</p>
+						<p>
+								<mat-form-field class="example-full-width">
+									  <input matInput placeholder="Long Loca">
+								</mat-form-field>
+								<mat-form-field class="example-full-width">
+									  <input matInput placeholder="Lat Loc">
+								</mat-form-field>
+							  </p>
+							
+							  <p>
+
+			<button  style="margin-left: 20px;margin-bottom: 20px; float: left"  mat-raised-button >Cancel</button>
+
+				<button mat-raised-button  style="margin-right: 20px; float: right" color="primary">Show</button>
+										
+						
+							</p>
+											
+				
+				 </form>
+			
+		  </div>
+          <div  [class.mat-elevation-z2]="!isActive" [class.mat-elevation-z8]="isActive"  fxFlex="70" fxFlex.lt-md="50" style="background: white" fxFlex.lt-sm="100" >
+			
+				<app-generalbtsmap></app-generalbtsmap>
+		  </div>
+
+ 
+	  </div>
+<!-- 
+	  <div fxLayout="column" class=" [class.mat-elevation-z2]="!isActive" [class.mat-elevation-z8]="isActive"">
+
+	  </div> -->
+	  <!-- <app-crudtable></app-crudtable> -->
+
+
+<div flexLayout="column" class="generalclass" >
+		  <app-crudtable></app-crudtable>
+</div>
