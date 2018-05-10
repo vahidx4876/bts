@@ -36,7 +36,8 @@ export const appRoutes: Routes = [{
         {path: 'guarded-routes',loadChildren:'../guarded-routes/guarded-routes.module#GuardedRoutesModule'},
         {path: 'editor', loadChildren: '../editor/editor.module#EditorModule'},
         {path: 'scrumboard', loadChildren: '../scrumboard/scrumboard.module#ScrumboardModule'},
-        {path: 'adddev' , loadChildren:'../components/bts/adddeviceboard/adddevices/adddevices.module#AdddevicesModule'}
+        {path: 'adddev' , loadChildren:'../components/bts/adddeviceboard/adddevices/adddevices.module#AdddevicesModule'},
+
  
       
      

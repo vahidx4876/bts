@@ -4,7 +4,17 @@
         <cdk-dashcard  [dashData]="dash" ></cdk-dashcard>
     </div>
 </div>
-<div fxLayout="row" fxLayoutWrap>
+
+
+<div fxLayout="column" fxLayoutWrap style=" padding: 8px;">
+        <cdk-google-map></cdk-google-map>
+    </div> 
+    <div fxLayout="column" fxLayoutWrap style=" padding: 8px;">
+           
+    <app-infotable style=" padding: 8px;"></app-infotable>
+        </div> 
+
+<!-- <div fxLayout="row" fxLayoutWrap>
     <cdk-bar-graph fxFlex="37.5" fxFlex.lt-sm="100"  fxFlex.sm="50" ></cdk-bar-graph>
     <cdk-doughnut-graph fxFlex="37.5" fxFlex.lt-sm="100"  fxFlex.sm="50" ></cdk-doughnut-graph>
     <cdk-weather fxFlex="25" fxFlex.lt-sm="100"  fxFlex.sm="100" ></cdk-weather>
@@ -35,5 +45,5 @@
 
 <div fxLayout="column" fxLayoutWrap style=" padding: 8px;">
     <cdk-world-map [tableData]="tableData"></cdk-world-map>
-</div>
+</div> -->
 
