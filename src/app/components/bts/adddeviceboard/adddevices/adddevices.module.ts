@@ -11,11 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GeneralbtsmapComponent } from '../generalbtsmap/generalbtsmap.component';
-import { CrudtableComponent } from '../../tables/crudtable/crudtable.component';
 import { DataService } from '../../../../services/data.service';
-import { EditDialogComponent } from '../../../../dialogs/edit/edit.dialog.component';
-import { AddDialogComponent } from '../../../../dialogs/add/add.dialog.component';
-import { DeleteDialogComponent } from '../../../../dialogs/delete/delete.dialog.component';
+
 
 
 @NgModule({
@@ -48,8 +45,8 @@ import { DeleteDialogComponent } from '../../../../dialogs/delete/delete.dialog.
     MatNativeDateModule,
 
   ],
-  declarations: [AdddeviceboardComponent,GeneralbtsmapComponent,CrudtableComponent,EditDialogComponent,AddDialogComponent,DeleteDialogComponent],
-  entryComponents:[AddDialogComponent,DeleteDialogComponent,EditDialogComponent],
+  declarations: [AdddeviceboardComponent,GeneralbtsmapComponent],
+  entryComponents:[],
   providers:[DataService]
 })
 export class AdddevicesModule { }

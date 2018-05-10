@@ -33,14 +33,10 @@ import { FilterTableComponent } from './filter-table/filter-table.component';
 import { FeatureTableComponent } from './feature-table/feature-table.component';
 import { ResponsiveTableComponent } from './responsive-table/responsive-table.component';
 import { FixedTableComponent } from './fixed-table/fixed-table.component';
-import { CrudtableComponent } from '../components/bts/tables/crudtable/crudtable.component';
 import { DataService } from '../services/data.service';
-
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { DeleteDialogComponent } from '../dialogs/delete/delete.dialog.component';
-import { EditDialogComponent } from '../dialogs/edit/edit.dialog.component';
-import { AddDialogComponent } from '../dialogs/add/add.dialog.component';
 import {MatDialogModule} from '@angular/material';
+import { Sharedx1Module } from '../shared/sharedx1/sharedx1.module';
 
 export function highlightJsFactory(): any {
   hljs.registerLanguage('typescript', hljsTypescript);
@@ -49,6 +45,7 @@ export function highlightJsFactory(): any {
 
 @NgModule({
   imports: [
+    Sharedx1Module,
     MatDialogModule,
     HttpClientModule,
     CommonModule,
@@ -80,10 +77,6 @@ export function highlightJsFactory(): any {
     TablesRouterModule
   ],
   declarations: [
-    AddDialogComponent,
-    EditDialogComponent,
-    DeleteDialogComponent,
-    CrudtableComponent,
    FilterTableComponent,
    FeatureTableComponent,
    ResponsiveTableComponent,
@@ -91,9 +84,7 @@ export function highlightJsFactory(): any {
    providers: [
     DataService
   ],  entryComponents: [
-    AddDialogComponent,
-    EditDialogComponent,
-    DeleteDialogComponent
+
   ],
 
   exports: [
