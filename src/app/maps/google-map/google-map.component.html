@@ -1,10 +1,73 @@
-<div class="components-container-gt-xs" >
 
-<div fxLayout="column" fxFlexFill #mapContainer>
-	<div class="mat-elevation-z1 map-container" fxFlexFill>
-		<agm-map [latitude]="lat" [longitude]="lng" [zoom]="17" [ngStyle]="{ 'height': height }">
-				<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-		</agm-map>
-	</div>
-</div>
-</div>
+<!-- <div class="components-container-gt-xs" >
+
+  <div fxLayout="column" fxFlexFill #mapContainer>
+    <div class="mat-elevation-z1 map-container" fxFlexFill>
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="17" [ngStyle]="{ 'height': height }">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map>
+    </div>
+  </div>
+  </div> -->
+
+
+  <!-- <sebm-google-map-circle
+  *ngFor="let marker of markers"
+  (mouseOut)="circleOut(marker)"
+  (mouseOver)="circleOver(marker)"
+  [latitude]="marker.latitude"
+  [longitude]="marker.longitude"
+  [fillColor]="marker.fillColor"
+  [fillOpacity]="marker.fillOpacity"
+  [radius]="marker.radius"
+  [zIndex]="marker.zIndex"
+  [strokeColor]="marker.strokeColor"
+  [strokeOpacity]="marker.strokeOpacity"
+  [strokeWeight]="marker.strokeWeight"
+  [strokePosition]="marker.strokePosition">
+</sebm-google-map-circle> -->
+
+        <div fxLayout="column" fxFlexFill  #mapContainer >
+            <div  class="map" >
+      <agm-map 
+      [latitude]="lat"
+      [longitude]="lng"
+      [zoom]="zoom"
+      [disableDefaultUI]="false"
+      [zoomControl]="true"
+      
+      (mapClick)="mapClicked($event)">
+    
+      <agm-marker #amgMarker
+          *ngFor="let m of markers; let i = index"
+          (markerClick)="clickedMarker(m, i)"
+          (mouseOut)="onMouseOut(infoWindow,m)"
+          (mouseOver)="onMouseOver(infoWindow,m)"
+          [latitude]="m.lat"
+          [longitude]="m.lng"
+          [label]="m.label"
+          [markerDraggable]="m.draggable"
+          (dragEnd)="markerDragEnd(m, $event)">
+          
+        <agm-info-window #infoWindow >
+          <h3>
+              {{m.label}}
+          </h3>
+      
+         
+        </agm-info-window>
+        
+      </agm-marker>
+      
+      <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
+          [radius]="5000"
+          [fillColor]="'red'"
+          [circleDraggable]="true"
+          [editable]="true">
+      </agm-circle>
+    
+    </agm-map>
+    </div>
+    </div>
+
+

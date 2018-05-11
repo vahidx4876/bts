@@ -372,7 +372,8 @@ export class ExampleDatabase {
       id: (this.data.length + 1).toString(),
       name: name,
       progress: Math.round(Math.random() * 100).toString(),
-      color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
+      color: COLORS[Math.round(Math.random() * (COLORS.length - 1))],
+      position :  Math.round(Math.random() * 100).toString(),
     };
   }
 }
@@ -443,6 +444,7 @@ export class ExampleDataSource extends DataSource<any> {
         case 'userName': [propertyA, propertyB] = [a.name, b.name]; break;
         case 'progress': [propertyA, propertyB] = [a.progress, b.progress]; break;
         case 'color': [propertyA, propertyB] = [a.color, b.color]; break;
+       case 'position': [propertyA, propertyB] = [a.position, b.position]; break;
       }
 
       let valueA = isNaN(+propertyA) ? propertyA : +propertyA;

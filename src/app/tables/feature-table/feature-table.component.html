@@ -22,9 +22,33 @@
 				<!--- Note that these columns can be defined in any order.
 				The actual rendered columns are set as a property on the row definition" -->
 
+
+				
+<!-- 
+<div *ngFor="let file of fileUploads | async">
+	{{file.name}}
+	<img src="{{file.url}}"/>
+</div>
+
+<div *ngFor="let file of fileUploads | async">
+	{{file.name}}
+	<img src="{{file.url}}"/>
+</div> -->
+					<!-- Position Column -->
+			
+					<ng-container matColumnDef="position">
+						<mat-header-cell *matHeaderCellDef mat-sort-header > option </mat-header-cell>
+						<mat-cell *matCellDef="let row"> 
+							<div *ngIf="row.position %2==0">
+									<img  style="width: 40px; height: 40px;" src="http://www.hyperlinkcode.com/images/sample-image.jpg"/>	
+							</div>								
+					
+						</mat-cell>
+					  </ng-container>
+
 				<!-- Checkbox Column -->
 				<ng-container matColumnDef="select">
-					<mat-header-cell *matHeaderCellDef>
+					<mat-header-cell *matHeaderCellDef  mat-sort-header>
 						<mat-checkbox (change)="$event ? masterToggle() : null"
 							[checked]="isAllSelected()"
 							[indeterminate]="selection.hasValue() && !isAllSelected()">

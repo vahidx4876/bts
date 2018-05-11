@@ -3,6 +3,7 @@ export interface UserData {
   name: string;
   progress: string;
   color: string;
+  position:string;
 }
 export interface GithubApi {
   items: GithubIssue[];

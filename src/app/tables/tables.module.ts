@@ -15,7 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material';
+import { MatNativeDateModule, MatOptionModule, MatSelectModule } from '@angular/material';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule,
@@ -73,6 +73,8 @@ export function highlightJsFactory(): any {
     MatTooltipModule,
     MatChipsModule,
     MatButtonToggleModule,
+    MatOptionModule,
+    MatSelectModule,
     HighlightJsModule.forRoot({
       provide: HIGHLIGHT_JS,
       useFactory: highlightJsFactory

@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardCrmComponent implements OnInit {
 
+    stroke  : string = "12";
+
+
     public dashCard = [
         {colorDark: '#5C6BC0',colorLight: '#7986CB', number: 1221, title: 'SALES',icon:'local_grocery_store'},
         {colorDark: '#42A5F5',colorLight: '#64B5F6', number: 1221, title: 'LEADS',icon:'new_releases'},

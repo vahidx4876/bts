@@ -37,6 +37,8 @@ export const appRoutes: Routes = [{
         {path: 'editor', loadChildren: '../editor/editor.module#EditorModule'},
         {path: 'scrumboard', loadChildren: '../scrumboard/scrumboard.module#ScrumboardModule'},
         {path: 'adddev' , loadChildren:'../components/bts/adddeviceboard/adddevices/adddevices.module#AdddevicesModule'},
+         {path:'mappin',loadChildren:'../modules/bts/mappin/mappin.module#MappinModule'}
+     
 
  
       

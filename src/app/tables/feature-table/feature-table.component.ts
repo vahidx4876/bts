@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/Observable';
 export class FeatureTableComponent implements OnInit {
 
 	showNavListCode;
-	displayedColumns = ['select', 'userId', 'userName', 'progress', 'color'];
+	displayedColumns = ['position','select', 'userId', 'userName', 'progress', 'color'];
 	exampleDatabase = new ExampleDatabase();
 	selection = new SelectionModel<string>(true, []);
 	dataSource: ExampleDataSource | null;

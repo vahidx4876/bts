@@ -14,11 +14,11 @@ export class RoundProgressbarComponent implements OnInit {
     @Input() color;
     @Input() boxcolor;
     @Input() title;
-
+    @Input() stroke;
 
 
     public radius       =    250;
-    public stroke       =    "20" ;
+    // public stroke       =    "10" ;
     public semicircle   =    false;
     public rounded      =    true;
     public clockwise    =    false;
