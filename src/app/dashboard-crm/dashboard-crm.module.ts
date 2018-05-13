@@ -21,13 +21,12 @@ export const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    MatPaginatorModule,
+
     MatSortModule,
     MatFormFieldModule,
     MatTableModule,
     CommonModule,
     RouterModule.forChild(appRoutes),
-    FlexLayoutModule,
     MatCardModule,
     DashboardWidgetModule,
     AgmCoreModule.forRoot({
@@ -35,8 +34,6 @@ export const appRoutes: Routes = [
     }),
 
     FlexLayoutModule,  
-    MatCardModule,
-    MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
     FormsModule,
@@ -45,6 +42,7 @@ export const appRoutes: Routes = [
     MatButtonModule,
     MatIconModule,
     MatPaginatorModule,
+   
 
   ],
   declarations: [DashboardCrmComponent,GoogleMapComponent,InfotableComponent],

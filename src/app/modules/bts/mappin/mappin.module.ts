@@ -1,32 +1,51 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MappinRoutingModule } from './mappin-routing.module';
 import { PintabComponent } from './pintab/pintab.component';
-import { MatTabsModule, MatCardModule, MatIconModule } from '@angular/material';
-import { ModalgalleryComponent } from './modalgallery/modalgallery.component';
+import { MatTabsModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatToolbarModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import 'hammerjs'; // <------ mandatory dependency for angular-modal-gallery
-import 'mousetrap'; // <------ mandatory dependency for angular-modal-gallery
-import { ModalGalleryModule } from 'angular-modal-gallery'; // <----------------- angular-modal-gallery library import
-// **************************************************************************
+import { RouterModule } from '@angular/router';
+import { ModalGalleryModule } from 'angular-modal-gallery';
 
-// ************************ optional font-awesome 5 ************************
-// to install use both `npm i --save @fortawesome/fontawesome` and `npm i --save @fortawesome/fontawesome-free-solid`
-import { faExternalLinkAlt, faPlus, faTimes, faDownload } from '@fortawesome/fontawesome-free-solid';
-import * as fontawesome from '@fortawesome/fontawesome';
-fontawesome.library.add(faExternalLinkAlt, faPlus, faTimes, faDownload);
+import { CcrudtableModule } from '../../shared/ccrudtable/ccrudtable.module';
+import { ModalgModule } from '../modalg/modalg.module';
+import { DashboardWidgetModule } from '../../../dashboard-widget/dashboard-widget.module';
+import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { LayoutModule } from '@angular/cdk/layout';
+
+
+
+
+
 
 @NgModule({
   imports: [
-    CommonModule,
+    CcrudtableModule,
+    ModalgModule,
+    RouterModule,
     MappinRoutingModule,
     MatTabsModule,
     MatCardModule,
     MatIconModule,
+    MatFormFieldModule,
+    CommonModule,
+    FlexLayoutModule,  
+    MatInputModule,
+    HttpClientModule,
     FormsModule,
-    ModalGalleryModule.forRoot()
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    DashboardWidgetModule
+    
+
+    
   ],
-  declarations: [PintabComponent, ModalgalleryComponent]
+  declarations: [PintabComponent  ]
 })
-export class MappinModule { }
+export class MappinModule {
+
+}

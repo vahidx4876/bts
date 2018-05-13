@@ -38,15 +38,15 @@ import { Router } from '@angular/router';
     this.router.navigate(['']);
   }
   goPlaces() {
-	this.router.navigate(['auth','adddev','devices']).then(nav => {
-	  console.log(nav); // true if navigation is successful
+	this.router.navigate(['auth','mappin','pintab']).then(nav => {
+	  console.log(nav+"pin from dtaeail "); // true if navigation is successful
 	}, err => {
 	  console.log(err) // when there's an error
 	});
   }
     clickedMarker(m: marker, index: number) {
       
-	  console.log(`clicked the marker: ${m.label }`);
+	  console.log(`clicked the marker: ${m.label }`+"hello");
 	  this.goPlaces();
 	  
     }

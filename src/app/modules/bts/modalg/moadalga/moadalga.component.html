@@ -1,0 +1,11 @@
+<div class="more">
+        <ng-container >
+       <div >
+       <a  *ngIf="images.length>0" (click)="openImageModalRow(images[0])"> +{{images.length}} image </a>
+       </div>
+   </ng-container>
+  </div>
+  <ks-modal-gallery [modalImages]="images"
+                    [plainGalleryConfig]="customPlainGalleryRowConfig"></ks-modal-gallery>
+
+          
