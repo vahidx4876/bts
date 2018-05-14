@@ -27,7 +27,7 @@ import { DeleteDialogComponent } from '../dialogs/delete/delete.dialog.component
   styleUrls: ['./ccrudtable.component.scss']
 })
 export class CcrudtableComponent implements OnInit {
-  displayedColumns = ['image','id', 'title', 'state', 'url', 'created_at', 'updated_at', 'actions'];
+  displayedColumns = ['actions','id', 'title', 'state', 'url', 'created_at', 'updated_at','image'];
   exampleDatabase: DataService | null;
   dataSource: ExampleDataSource | null;
   index: number;

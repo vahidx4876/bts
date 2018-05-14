@@ -61,3 +61,16 @@
     height: 50px;
     background-image: url('../../../../../assets/arch-pattern.png');
 }
+
+
+mat-cell{
+  display:flex !important;
+  justify-content:center!important;
+  
+}
+
+mat-header-cell {
+  display:flex;
+  justify-content:center;
+}
+

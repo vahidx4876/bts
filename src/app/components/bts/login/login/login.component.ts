@@ -25,7 +25,11 @@ export class LoginComponent implements OnInit {
     this.authService.attemptAuth(this.username, this.password).subscribe(
       data => {
         this.token.saveToken(data.token);
-        this.router.navigate(['user']);
+        this.router.navigate(['login','btsusers']).then(nav =>{
+
+          console.log(nav ); // true if navigation is successful
+        },err =>{console.log(err)});;
+
       }
     );
   }

@@ -48,14 +48,14 @@
     <!-- actions -->
     <ng-container matColumnDef="actions" >
         <mat-header-cell *matHeaderCellDef >
-          <button mat-icon-button color="theme" (click)="addNew()">
+          <button mat-icon-button color="warn" (click)="addNew()">
             <mat-icon aria-label="warnning">warning</mat-icon>
           </button>
         </mat-header-cell>
   
         <mat-cell *matCellDef="let row; let i=index;">
           <button mat-icon-button color="primary">
-            <mat-icon aria-label="Edit" >edit</mat-icon>
+            <mat-icon aria-label="Edit" >notifications_active</mat-icon>
           </button>
   
         </mat-cell>

@@ -6,9 +6,11 @@ import { UserComponent } from '../user/user.component';
 
 
 const routes: Routes = [
+  {path:'**',redirectTo:'/login/btslogin'},
   { path: 'btslogin', component: LoginComponent , data: { animation: 'btslogin' }},
-{ path: 'btserror', component: ErrorComponent ,data: { animation: 'btserror' }},
-{path:'btsuser',component:UserComponent,data :{animation :'btsuser'}}];
+ { path: 'btserror', component: ErrorComponent ,data: { animation: 'btserror' }},
+ {path:'btsusers',component:UserComponent,data :{animation :'btsusers'}}
+];
 
 
 

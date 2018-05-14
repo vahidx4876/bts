@@ -1,4 +1,28 @@
 
+<div  fxLayout="column"  fxLayoutWrap>
+    <mat-card  class="mattab" >
+            <mat-card-content>
+                    <h2 class="example-h2">BTS GENERAL</h2>
+                      
+        <div fxLayout="row" fxLayoutWrap  >
+                <div  *ngFor="let dash of btsData"   fxFlex.lt-sm="100"  fxFlex.sm="50" fxFlex.md="50" >
+                    <cdk-dashcard [isdashboard]="true"  [btsData]="dash" ></cdk-dashcard>
+                </div>
+            </div>
+            </mat-card-content>
+            <mat-card-content>
+                    <cdk-google-map></cdk-google-map>   
+            </mat-card-content>
+            <mat-card-content>    
+                    <app-infotable ></app-infotable>
+            </mat-card-content>
+    </mat-card>
+
+</div>
+
+
+<!-- 
+
 <div fxLayout="column" fxLayoutWrap>
     
         <div fxLayout="row" fxLayoutWrap  >
@@ -14,7 +38,8 @@
 
     
             
-</div>
+</div> -->
+
 
 
 <!-- <div fxLayout="row" fxLayoutWrap>
