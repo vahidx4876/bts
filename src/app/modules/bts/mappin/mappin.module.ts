@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MappinRoutingModule } from './mappin-routing.module';
 import { PintabComponent } from './pintab/pintab.component';
-import { MatTabsModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatToolbarModule } from '@angular/material';
+import { MatTabsModule, MatCardModule, MatIconModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatToolbarModule, MatPaginatorModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ModalGalleryModule } from 'angular-modal-gallery';
@@ -16,12 +16,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
 
 
+    
+
 
 
 
 
 @NgModule({
   imports: [
+ 
     CcrudtableModule,
     ModalgModule,
     RouterModule,
@@ -38,9 +41,10 @@ import { LayoutModule } from '@angular/cdk/layout';
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule,
-    DashboardWidgetModule
+    DashboardWidgetModule,
+    MatPaginatorModule,
     
+
 
     
   ],

@@ -29,6 +29,17 @@
             color: white;
         }
 
+        .number{
+            left:50%;
+            top:50%;
+            bottom: auto;
+            -webkit-transform: translateX(-50%) translatey(-50%);
+            -moz-transform: translateX(-50%) translatey(-50%);
+            transform: translateX(-50%) translatey(-50%);
+            font-size: 20 px;
+            // 'font-size': this.radius / 7 + 'px'
+        }
+
         round-progress {
           margin: auto;
         }

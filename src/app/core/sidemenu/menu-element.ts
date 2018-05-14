@@ -24,7 +24,7 @@ export const menus = [
     {
         "name"   : "Users",
         "icon"   : "supervisor_account",
-        "link"   : "/auth/dashboard",
+        "link"   : "false",
         "open"   : false,
     },
     {

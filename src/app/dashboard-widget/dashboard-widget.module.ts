@@ -23,11 +23,14 @@ import { RoundProgressbarComponent } from './round-progressbar/round-progressbar
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
 import { SalesListComponent } from './sales-list/sales-list.component';
 import { D3UsaComponent } from './d3-usa/d3-usa.component';
+import {Component} from '@angular/core';
+import { MatSlideToggleModule } from '@angular/material';
 
 
 
 @NgModule({
   imports: [
+   MatSlideToggleModule,
     CommonModule,
     FlexLayoutModule,
     MatButtonModule,
@@ -59,6 +62,7 @@ import { D3UsaComponent } from './d3-usa/d3-usa.component';
     
       ],
   exports: [
+   
       DashcardComponent, 
       LineGraphComponent, 
       BarGraphComponent, 

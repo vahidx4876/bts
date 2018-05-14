@@ -2,8 +2,8 @@
 <div fxLayout="column" fxLayoutWrap>
     
         <div fxLayout="row" fxLayoutWrap  >
-                <div  *ngFor="let dash of dashCard"   fxFlex.lt-sm="100"  fxFlex.sm="50" fxFlex.md="50" >
-                    <cdk-dashcard  [dashData]="dash" ></cdk-dashcard>
+                <div  *ngFor="let dash of btsData"   fxFlex.lt-sm="100"  fxFlex.sm="50" fxFlex.md="50" >
+                    <cdk-dashcard [isdashboard]="true"  [btsData]="dash" ></cdk-dashcard>
                 </div>
             </div>
             <div fxLayout="column" fxLayoutWrap style="margin-left: 7px">
@@ -11,21 +11,8 @@
                    <app-infotable ></app-infotable>
                         
             </div>
-<!-- 
-            <div fxLayout="row" fxLayoutWrap>
-                <div  fxFlex.lt-sm="100"  fxFlex.sm="50" fxFlex.md="25" >
-                   <cdk-round-progressbar [stroke]="stroke"[title]="'Fancoil'"  [current]="'23'" [max]="'100'" [background]="'#FFF968'" [color]="'#B1A7FF'" [boxcolor]="'#7986CB'"  ></cdk-round-progressbar>
-                </div>
-                <div fxFlex.lt-sm="100"  fxFlex.sm="50" fxFlex.md="25" >
-                   <cdk-round-progressbar [stroke]="stroke" [title]="'Warm'" [current]="'33'" [max]="'100'" [background]="'#FFE268'" [color]="'#A7C1FF'" [boxcolor]="'#42A5F5'"  ></cdk-round-progressbar>
-                </div>
-                <div fxFlex.lt-sm="100"  fxFlex.sm="50" fxFlex.md="25" >
-                  <cdk-round-progressbar [stroke]="stroke" [title]="'Heater'" [current]="'78'" [max]="'100'" [background]="'#FFC368'" [color]="'#A7F0FF'" [boxcolor]="'#26A69A'"  ></cdk-round-progressbar>
-                </div>
-                <div fxFlex.lt-sm="100"  fxFlex.sm="50" fxFlex.md="25" >
-                    <cdk-round-progressbar [stroke]="stroke" [title]="'Cooling'" [current]="'90'" [max]="'100'" [background]="'#FFCF68'" [color]="'#A7DEFF'" [boxcolor]="'#26C6DA'"  ></cdk-round-progressbar>
-                </div>    
-            </div>  -->
+
+    
             
 </div>
 

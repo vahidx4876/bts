@@ -8,9 +8,13 @@ import { Observer } from 'rxjs/Observer';
 })
 export class DashcardComponent implements OnInit {
      
-    @Input() dashData: any;
-    devnum : string ="14";
-    devname : string = "Online";
+  
+    @Input() btsData: any;
+    @Input() isdashboard : boolean;
+    @Input() ispintap : boolean;
+
+
+   
     
     constructor() {
 
