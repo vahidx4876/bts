@@ -36,3 +36,17 @@ export interface IGauge {
 }
 
 
+export interface IBTSCard {
+    colorDark: string,
+    colorLight: string,
+    status: string,
+    max: number,
+    icon: string,
+    message : string
+    istoggel : boolean
+    checked : boolean
+    disabled: boolean
+    toggelcolor: string
+  
+}
+

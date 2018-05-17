@@ -12,14 +12,14 @@
 
 <div fxLayout="column" >
     <div fxLayout="row" fxLayoutWrap>
-          <div  fxFlex.lt-sm="100"  fxFlex.sm="50" fxFlex.md="25" *ngFor="let gau of gaugeData; let i = index">
+          <div  fxFlex.lt-sm="100"  fxFlex.sm="50" fxFlex.md="25" *ngFor="let gau of btsGaugeData; let i = index">
           <cdk-round-progressbar [stroke]="gau.stroke"[title]="gau.title"  [current]="gau.current" [max]="gau.max" [background]="gau.background" [color]="gau.color" [boxcolor]="gau.boxcolor"  ></cdk-round-progressbar>
          </div>  
     </div>  
 
 
       <div fxLayout="row" fxLayoutWrap   >
-        <div  *ngFor="let btsd of  btsData"   fxFlex.lt-sm="100"  fxFlex.sm="50" fxFlex.md="50" >
+        <div  *ngFor="let btsd of  btsCardData"   fxFlex.lt-sm="100"  fxFlex.sm="50" fxFlex.md="50" >
            <cdk-dashcard  [btsData]="btsd"  [isdashboard]="false" [ispintap]="true" ></cdk-dashcard>
         </div>
     </div>
