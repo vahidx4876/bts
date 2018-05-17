@@ -25,11 +25,11 @@ import { SalesListComponent } from './sales-list/sales-list.component';
 import { D3UsaComponent } from './d3-usa/d3-usa.component';
 import {Component} from '@angular/core';
 import { MatSlideToggleModule } from '@angular/material';
-
-
+ import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
+      
    MatSlideToggleModule,
     CommonModule,
     FlexLayoutModule,
@@ -62,7 +62,7 @@ import { MatSlideToggleModule } from '@angular/material';
     
       ],
   exports: [
-   
+      CommonModule,
       DashcardComponent, 
       LineGraphComponent, 
       BarGraphComponent, 

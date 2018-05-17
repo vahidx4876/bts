@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BTSDashService } from './employee.service';
+import { marker } from '../components/bts/login/models/bts/MapData';
 
 @Component({
   selector: 'app-dashboard-crm',
@@ -9,28 +11,58 @@ export class DashboardCrmComponent implements OnInit {
 
     stroke  : string = "12";
 
+ public btsData = [];
+ public markers = [];
 
+//  public markers: marker[] = [
+//   {
+//     lat: 35.715298,
+//     lng: 51.404343,
+//     label: 'Tehran',
+//     draggable: true
+//   },
+//   {
+//     lat: 51.373858,
+//     lng: 7.215982,
+//     label: 'B',
+//     draggable: false
+//   },
+//   {
+//     lat: 51.723858,
+//     lng: 7.895982,
+//     label: 'C',
+//     draggable: true
+//   }
+// ]
+   public errorMsg;
 
-    public btsData = [
-        {colorDark: '#5C6BC0',colorLight: '#7986CB', number: 12, message: 'number of online Devices' , isdashboard : 'true'},
-        {colorDark: '#42A5F5',colorLight: '#64B5F6', number: 4, message: 'number of offline devices' , isdashboard : 'true'},
-
-    ]
+    // public btsData = [
+    //     {colorDark: '#5C6BC0',colorLight: '#7986CB', number: 12, message: 'number of online Devices' , isdashboard : 'true'},
+    //     {colorDark: '#42A5F5',colorLight: '#64B5F6', number: 4, message: 'number of offline devices' , isdashboard : 'true'},
+    // ]
 
    
 
-    tableData = [
-        { country: 'India', sales: 5400, percentage: '40%' },
-        { country: 'Us', sales: 3200, percentage: '30.33%' },
-        { country: 'Australia', sales: 2233, percentage: '18.056%' },
-        { country: 'Spaim', sales: 600, percentage: '6%' },
-        { country: 'China', sales: 200, percentage: '4.50%' },
-        { country: 'Brazil', sales: 100, percentage: '2.50%' },
-    ];
 
-    constructor() { }
+    constructor(private _employeeService:BTSDashService) { }
 
-    ngOnInit() {
-    }
+     ngOnInit() {
+    this._employeeService.getDaschcard()
+      .subscribe(data => {this.btsData = data;
+    console.log(data);
+    },
+                 error => this.errorMsg = error);
+
+     this._employeeService.getMapPoin()
+         .subscribe(data => {this.markers = data;
+       console.log(data);
+       },
+          error => this.errorMsg = error);
+
+                 
+        
+  }
 
 }
+
+

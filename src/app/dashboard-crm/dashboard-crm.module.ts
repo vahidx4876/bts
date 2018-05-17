@@ -13,6 +13,7 @@ import { MatFormFieldModule, MatTableModule, MatSortModule, MatPaginatorModule, 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
+import { BTSDashService } from './employee.service';
 
 
 export const appRoutes: Routes = [
@@ -47,6 +48,6 @@ export const appRoutes: Routes = [
   ],
   declarations: [DashboardCrmComponent,GoogleMapComponent,InfotableComponent],
   exports:[ ],
-  providers:[]
+  providers:[BTSDashService]
 })
 export class DashboardCrmModule { }

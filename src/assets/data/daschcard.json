@@ -1,0 +1,4 @@
+[
+    {"colorDark":"#5C6BC0", "colorLight": "#7986CB", "number": 12,"message":"number of online Devices","isdashboard" :true},
+    {"colorDark":"#42A5F5", "colorLight": "#64B5F6", "number": 12,"message":"number of offline Devices","isdashboard" :true}
+]

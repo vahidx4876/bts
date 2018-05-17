@@ -1,5 +1,5 @@
 
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, Input} from '@angular/core';
 
 import {HttpClient} from '@angular/common/http';
 import {MatDialog, MatPaginator, MatSort} from '@angular/material';
@@ -26,7 +26,7 @@ import { DeleteDialogComponent } from '../../../../dialogs/delete/delete.dialog.
   styleUrls: ['./crudtable.component.scss']
 })
 export class CrudtableComponent implements OnInit {
-  displayedColumns = ['id', 'title', 'state', 'url', 'created_at', 'updated_at', 'actions'];
+  displayedColumns = ['id', 'title', 'state', 'url', 'created_at', 'updated_at','time', 'actions'];
   exampleDatabase: DataService | null;
   dataSource: ExampleDataSource | null;
   index: number;
@@ -39,13 +39,14 @@ export class CrudtableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild('filter') filter: ElementRef;
-
+  @Input() public mapData : MapData;
   ngOnInit() {
     this.loadData();
   }
 
   refresh() {
     this.loadData();
+    console.log(this.mapData);
   }
 
   addNew(issue: Issue) {
@@ -134,7 +135,17 @@ export class CrudtableComponent implements OnInit {
   }
 }
 
+class MapData {
+  btsName: string;
+  btsID: string;
+  lat : number;
+  lng : number;
+  makeTime : string;
+  constructor() {
+      
+  }
 
+}
 export class ExampleDataSource extends DataSource<Issue> {
   _filterChange = new BehaviorSubject('');
 
@@ -207,6 +218,7 @@ export class ExampleDataSource extends DataSource<Issue> {
         case 'url': [propertyA, propertyB] = [a.url, b.url]; break;
         case 'created_at': [propertyA, propertyB] = [a.created_at, b.created_at]; break;
         case 'updated_at': [propertyA, propertyB] = [a.updated_at, b.updated_at]; break;
+        case 'time': [propertyA, propertyB] = [a.time, b.time]; break;
       }
 
       const valueA = isNaN(+propertyA) ? propertyA : +propertyA;

@@ -59,11 +59,13 @@
         
       </agm-marker>
       
-      <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
-          [radius]="5000"
-          [fillColor]="'red'"
-          [circleDraggable]="true"
-          [editable]="true">
+      <agm-circle  *ngFor="let mc of markers; let i = index"
+      [latitude]="mc.lat"
+       [longitude]="mc.lng" 
+      [radius]="mc.radius"
+       [fillColor]="mc.fillColor"
+      [circleDraggable]="mc.circleDraggable"
+      [editable]="mc.editable">
       </agm-circle>
     
     </agm-map>

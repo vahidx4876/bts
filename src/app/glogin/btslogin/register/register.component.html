@@ -3,8 +3,7 @@
     <span><img src="../../../../../assets/logo.codetok.png"></span>
     <span class="example-fill-remaining-space"></span>
     <span class="example-spacer"></span>
-
-    <button mat-button (click)="goRegistern()">Register</button>
+    <button mat-button (click)="goLogin()">Login</button>
     <button mat-button>About</button>
     <button mat-button>Contact</button>
   </mat-toolbar-row>
@@ -12,7 +11,7 @@
 
 <mat-card class="example-card">
   <mat-card-header>
-    <mat-card-title style="font-size: 20px">Login</mat-card-title>
+    <mat-card-title style="font-size: 20px">User Register</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form class="example-form">
@@ -20,19 +19,19 @@
         <tr>
           <td>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Username" [(ngModel)]="loginUserData.email" name="username" required>
+              <input matInput placeholder="Username" [(ngModel)]="registerUserData.email" name="username" required>
             </mat-form-field>
           </td>
         </tr>
         <tr>
           <td><mat-form-field class="example-full-width">
-            <input matInput placeholder="Password" [(ngModel)]="loginUserData.password" type="password" name="password" required>
+            <input matInput placeholder="Password" [(ngModel)]="registerUserData.password" type="password" name="password" required>
           </mat-form-field></td>
         </tr></table>
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="loginUser()" color="primary">Login</button>
+    <button mat-raised-button (click)="registerUser()" color="primary">Register</button>
   </mat-card-actions>
 </mat-card>
 

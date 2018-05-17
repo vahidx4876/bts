@@ -1,0 +1,6 @@
+[
+    {"stroke" :12 ,"title":"coil", "current":34 ,"max":100,"background ": "#64B5F6","color" :"#B1A7FF","boxcolor":"#7986CB"},
+    {"stroke" :12 ,"title":"Fan", "current":34 ,"max":100,"background ": "#64B5F6","color" :"#B1A7FF","boxcolor":"#7986CB"},
+    {"stroke" :12 ,"title":"Voltage", "current":34 ,"max":100,"background ": "#64B5F6","color" :"#B1A7FF","boxcolor":"#7986CB"},
+    {"stroke" :12 ,"title":"Speed", "current":34 ,"max":100,"background ": "#64B5F6","color" :"#B1A7FF","boxcolor":"#7986CB"}
+]

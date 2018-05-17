@@ -1,8 +1,9 @@
 
-import { Component, OnInit , ViewChild , ElementRef , HostListener } from '@angular/core';
+import { Component, OnInit , ViewChild , ElementRef , HostListener, Input } from '@angular/core';
 import { AgmMap, AgmCoreModule, AgmInfoWindow, AgmMarker } from '@agm/core';
 import { MapsAPILoader , MouseEvent } from '@agm/core';
 import { Router } from '@angular/router';
+import { marker } from '../../components/bts/login/models/bts/MapData';
 @Component({
 	selector: 'cdk-google-map',
 	templateUrl: './google-map.component.html',
@@ -21,6 +22,9 @@ import { Router } from '@angular/router';
 
   @ViewChild('agminfo') aginfo : ElementRef;
 
+  
+ @Input() public markers: marker[]
+
 	constructor(private mapsAPILoader: MapsAPILoader ,private router : Router) {
 
   this.xrouter = router;
@@ -37,17 +41,18 @@ import { Router } from '@angular/router';
   goHome() {
     this.router.navigate(['']);
   }
-  goPlaces() {
-	this.router.navigate(['auth','mappin','pintab']).then(nav => {
-	  console.log(nav+"pin from dtaeail "); // true if navigation is successful
+  goBtsDetail(lab : string , lat : number , lng : number) {
+
+	this.router.navigate(['auth','mappin','pintab',{'NAVID':"DASH2D",'lab':lab ,'lat':lat ,'lng':lng}]).then(nav => {
+	  console.log(nav+" pin 2 detail "); // true if navigation is successful
 	}, err => {
 	  console.log(err) // when there's an error
-	});
+  });
+  
   }
     clickedMarker(m: marker, index: number) {
-      
-	  console.log(`clicked the marker: ${m.label }`+"hello");
-	  this.goPlaces();
+
+	  this.goBtsDetail(m.label , m.lat , m.lng );
 	  
     }
     
@@ -92,36 +97,9 @@ import { Router } from '@angular/router';
       console.log('dragEnd', m, $event);
     }
 
-    markers: marker[] = [
-      {
-        lat: 35.715298,
-        lng: 51.404343,
-        label: 'Tehran',
-        draggable: true
-      },
-      {
-        lat: 51.373858,
-        lng: 7.215982,
-        label: 'B',
-        draggable: false
-      },
-      {
-        lat: 51.723858,
-        lng: 7.895982,
-        label: 'C',
-        draggable: true
-      }
-    ]
 
 }
 
 
 
-// just an interface for type safety.
-interface marker {
-	lat: number;
-	lng: number;
-	label?: string;
-	draggable: boolean;
-}
 

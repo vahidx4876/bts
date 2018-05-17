@@ -1,4 +1,4 @@
-import { Component, OnInit , ViewChild , ElementRef } from '@angular/core';
+import { Component, OnInit , ViewChild , ElementRef, Input } from '@angular/core';
 import { AgmMap, AgmCoreModule, AgmInfoWindow, AgmMarker } from '@agm/core';
 import { MapsAPILoader , MouseEvent } from '@agm/core';
 
@@ -10,10 +10,13 @@ import { MapsAPILoader , MouseEvent } from '@agm/core';
 export class GeneralbtsmapComponent implements OnInit {
 
 
+
+  @Input() lat: number = 35.715298;
+  @Input() lng : number = 51.404343;
   title: string = 'BTS project';
 
-	lat: number = 35.715298;
-	lng: number = 51.404343;
+	// lat: number = 35.715298;
+	// lng: number = 51.404343;
 	zoom: number = 15;
   height: string = '1000px';
 
@@ -77,26 +80,7 @@ export class GeneralbtsmapComponent implements OnInit {
       console.log('dragEnd', m, $event);
     }
 
-    markers: marker[] = [
-      {
-        lat: 35.715298,
-        lng: 51.404343,
-        label: 'Tehran',
-        draggable: true
-      },
-      {
-        lat: 51.373858,
-        lng: 7.215982,
-        label: 'B',
-        draggable: false
-      },
-      {
-        lat: 51.723858,
-        lng: 7.895982,
-        label: 'C',
-        draggable: true
-      }
-    ]
+   @Input() public markers: marker[];
 
 }
 

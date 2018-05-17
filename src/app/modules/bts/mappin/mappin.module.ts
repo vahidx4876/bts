@@ -14,6 +14,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
+import { PinTabService } from './pintab/PinTabService';
 
 
     
@@ -48,7 +49,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 
     
   ],
-  declarations: [PintabComponent  ]
+  declarations: [PintabComponent  ],
+  providers:[PinTabService]
 })
 export class MappinModule {
 
