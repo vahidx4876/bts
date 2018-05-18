@@ -13,9 +13,9 @@ import { TokenStorageService } from '../services/tokenstorage.service';
 import { UserService } from '../services/user.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RegisterComponent } from '../../../../glogin/btslogin/register/register.component';
-import { AuthService } from '../../../../glogin/btslogin/auth.service';
 import { AuthGuard } from '../../../../glogin/btslogin/auth.guard';
 import { TokenInterceptorService } from '../../../../glogin/btslogin/token-interceptor.service';
+import { ServicesModule } from '../../../../modules/shared/services/services.module';
 
 
 
@@ -24,6 +24,7 @@ import { TokenInterceptorService } from '../../../../glogin/btslogin/token-inter
 
 @NgModule({
   imports: [
+    ServicesModule,
     FlexLayoutModule,
     MatIconModule,
     MatButtonModule,
@@ -44,11 +45,14 @@ MatToolbarModule,
     UserComponent,
     RegisterComponent,
     ErrorComponent,],
-    providers: [AuthService, 
+    providers: [
+
       {
         provide: HTTP_INTERCEPTORS,
         useClass: TokenInterceptorService,
         multi: true
-      }],
+      }
+      
+     ],
 })
 export class LoginrouterModule { }

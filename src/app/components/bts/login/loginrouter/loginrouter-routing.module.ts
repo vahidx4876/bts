@@ -7,7 +7,7 @@ import { RegisterComponent } from '../../../../glogin/btslogin/register/register
 
 
 const routes: Routes = [
-  // {path:'**',redirectTo:'/login/btslogin'},
+  {path:'**',redirectTo:'/login/btslogin'},
   { path: 'btslogin', component: LoginComponent , data: { animation: 'btslogin' }},
  { path: 'btserror', component: ErrorComponent ,data: { animation: 'btserror' }},
  {path:'btsusers',component:UserComponent,data :{animation :'btsusers'}},
