@@ -19,7 +19,7 @@
                 <mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center"> ID </mat-header-cell>
                 <mat-cell *matCellDef="let row">
                  
-                   <a style="cursor:pointer" class="nav-link"  (click)="linkItem(row.id,row.name)">{{row.id}}</a>
+                   <a style="cursor:pointer" class="nav-link"  (click)="linkItem(row.id,row.name,row.lat,row.long)">{{row.id}}</a>
           
                   </mat-cell>
               </ng-container>
@@ -27,19 +27,25 @@
               <!-- Progress Column -->
               <ng-container matColumnDef="name">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.name}}% </mat-cell>
+                <mat-cell *matCellDef="let row">           
+              <a style="cursor:pointer" class="nav-link"  (click)="linkItem(row.id,row.name,row.lat,row.long)">{{row.name}}</a>        
+                </mat-cell>
               </ng-container>
           
               <!-- Name Column -->
               <ng-container matColumnDef="long">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Long </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.long}} </mat-cell>
+                <mat-cell *matCellDef="let row">           
+                    <a style="cursor:pointer" class="nav-link"  (click)="linkItem(row.id,row.name,row.lat,row.long)">{{row.long}}</a>        
+                      </mat-cell>
               </ng-container>
           
               <!-- Color Column -->
               <ng-container matColumnDef="lat">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Lat </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.lat}} </mat-cell>
+                <mat-cell *matCellDef="let row">           
+                    <a style="cursor:pointer" class="nav-link"  (click)="linkItem(row.id,row.name,row.lat,row.long)">{{row.lat}}</a>        
+                      </mat-cell>
               </ng-container>
 <!-- 
  [style.color]="row.color" -->

@@ -11,6 +11,7 @@ import { IGauge, IBTSCard } from '../../../../dashboard-crm/employee';
 })
 export class PintabComponent implements OnInit {
 
+  btsName: string;
   public btsCardData: IBTSCard[];
   errorMsg: string;
   public btsGaugeData :IGauge[];
@@ -28,12 +29,12 @@ export class PintabComponent implements OnInit {
     const Paramsmap = this.route.snapshot.paramMap;
    var id = Paramsmap.get("NAVID");
   
-   if(id ==="DASH2D" )
+   if(id ==="DASH2D" || id ==="LINK2D"  )
    {
     this.lab = Paramsmap.get("lab");
     this.lat = Paramsmap.get("lat");
     this.lng = Paramsmap.get("lng");
-
+    this.btsName = this.lab;
     this._pinTabService.getGauge(this.lat,this.lng,this.lab)
    .subscribe(data => {this.btsGaugeData = data;
  console.log(data);

@@ -2,6 +2,7 @@
 import {Component, ViewChild,OnInit} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { Router } from '@angular/router';
+import { DevicesService } from '../../../../services/DevicesService';
 
 /**
  * @title Data table with sorting, pagination, and filtering.
@@ -13,13 +14,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./link-table.component.scss']
 })
 export class LinkTableComponent implements OnInit {
+  devices = [];
   displayedColumns = ['id', 'name', 'long', 'lat','actions'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private router : Router) {
+  constructor(private router : Router , private _devicesService: DevicesService) {
     // Create 100 users
     const users: UserData[] = [];
     for (let i = 1; i <= 100; i++) { users.push(createNewUser(i)); }
@@ -28,23 +30,43 @@ export class LinkTableComponent implements OnInit {
     this.dataSource = new MatTableDataSource(users);
   }
   
-  linkItem(id:string , name: string){
+  linkItem(id: string ,name : string , lat : string , lng : string){
 
-
-    console.log(id+ name);
-    this.goPlaces(id,name);
+    console.log(id+ name+lat+lng);
+    this. goBtsDetail(id ,name , lat , lng );
   }
 
-  goPlaces(id:string , name: string) {
-    this.router.navigate(['auth','mappin','pintab',{'id':id ,'name':name}]).then(nav => {
-      console.log(nav+"pin from dtaeail "); // true if navigation is successful
+
+  goBtsDetail(id: string ,name : string , lat : string , lng : string) {
+
+    this.router.navigate(['auth','mappin','pintab',{'NAVID':"LINK2D",'id':id ,'lab':name ,'lat':lat ,'lng':lng}]).then(nav => {
+      console.log(nav+" pin 2 detail "); // true if navigation is successful
     }, err => {
       console.log(err) // when there's an error
     });
-
+    
     }
 
+
+  // goPlaces(id:string , name: string) {
+  //   this.router.navigate(['auth','mappin','pintab',{'id':id ,'name':name}]).then(nav => {
+  //     console.log(nav+"pin from dtaeail "); // true if navigation is successful
+  //   }, err => {
+  //     console.log(err) // when there's an error
+  //   });
+
+  //   }
+
   ngOnInit(){
+
+    this._devicesService.getDevices()
+    .subscribe(
+      ((res) => {this.devices = res;
+      
+      }),
+      err => console.log(err)
+    )
+
     
   }
 

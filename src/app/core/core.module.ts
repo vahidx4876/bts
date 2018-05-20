@@ -25,6 +25,7 @@ import { MatSidenavModule,
          MatSliderModule,
          MatProgressBarModule,
        } from '@angular/material';
+import { ServicesModule } from '../modules/shared/services/services.module';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -45,6 +46,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   ],
 
   imports: [
+    ServicesModule,
     CommonModule,
     MatListModule,
     MatButtonModule,

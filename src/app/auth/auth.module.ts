@@ -21,9 +21,12 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 import { CoreModule } from '../core/core.module';
 
-export const appRoutes: Routes = [{ 
+export const appRoutes: Routes = [ { 
 
-      path:'',component: AuthComponent, children: [
+         path:"",component: AuthComponent, children: [
+
+           {path:'',pathMatch:"full",redirectTo:"dashboard"},
+           
         {path: 'dashboard', loadChildren: '../dashboard-crm/dashboard-crm.module#DashboardCrmModule'},
         // {path: 'dashboard-account', loadChildren: '../dashboard-accounts/dashboard-accounts.module#DashboardAccountsModule'},
         // {path: 'tables', loadChildren: '../tables/tables.module#TablesModule'},
@@ -37,7 +40,7 @@ export const appRoutes: Routes = [{
 
      
 
-      ]}
+      ]},{path: '**', redirectTo: 'dashboard'},
   ]
 
 @NgModule({

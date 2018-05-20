@@ -10,13 +10,18 @@ import { marker } from '../login/models/bts/MapData';
 export class AdddeviceboardComponent implements OnInit {
 
 
+
+   latc: number = 35.715298;
+   lngc : number = 51.404343;
+
   // just an interface for type safety.
   public markers: marker[] = [
     {
       lat: 350.715298,
       lng: 501.404343,
-      label: 'xyzz',
-      draggable: false
+      label: 'UNDEFINITION',
+      draggable: false,
+
     }
   ]
 
@@ -46,6 +51,9 @@ return true;
   onKeyLong(event: any) { // without type info
     this.longValue =  event.target.value ;
     
+     this.latc = this.latValue /1;
+     this.lngc = this.longValue/1;
+    
     if(this.longValue as number)
     if(this.checkInfo()){
       this.markers.splice(0,1);
@@ -54,7 +62,9 @@ return true;
         lat: this.latValue /1,
         lng:  this.longValue/1,
         label: this.btsName,
-        draggable: false
+        draggable: false,
+
+
       });
 
       console.log(this.markers);
@@ -90,13 +100,15 @@ console.log(mapD);
     if(this.latValue as number)
     if(this.checkInfo()){
     
-
+this.latc = this.latValue /1;
+this.lngc = this.longValue/1,
       this.markers.splice(0,1);
       this.markers.push({
         lat: this.latValue /1,
         lng:  this.longValue/1,
         label: this.btsName,
-        draggable: false
+        draggable: false,
+
       });
 
   
@@ -110,6 +122,18 @@ console.log(mapD);
 
 }
 
+
+
+class mapZoomData {
+
+  latc : number;
+  lngc : number;
+
+  constructor() {
+      
+  }
+
+}
 
 class mapData {
   btsName: string;

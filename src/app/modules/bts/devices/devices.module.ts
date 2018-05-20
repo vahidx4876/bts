@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DevicesRoutingModule } from './devices-routing.module';
 import { LinkTableComponent } from './link-table/link-table.component';
 import { MatPaginatorModule, MatSortModule, MatFormFieldModule, MatTableModule, MatInputModule, MatCardModule, MatIconModule, MatButtonModule } from '@angular/material';
+import { DevicesService } from '../../../services/DevicesService';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { MatPaginatorModule, MatSortModule, MatFormFieldModule, MatTableModule, 
     MatButtonModule
 
   ],
-  declarations: [LinkTableComponent]
+  declarations: [LinkTableComponent],
+  providers:[DevicesService]
 })
 export class DevicesModule { }

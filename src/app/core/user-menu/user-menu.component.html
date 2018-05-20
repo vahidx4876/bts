@@ -11,7 +11,7 @@
   	<div class="dropdown mat-elevation-z1" [class.open]="isOpen">
     	<div class="content">
       		<mat-nav-list>
-      			<mat-list-item>
+      			<!-- <mat-list-item>
       				<a matLine >Profile</a>
 				    <button mat-icon-button>
 				       <mat-icon>account_circle</mat-icon>
@@ -22,7 +22,7 @@
 				    <button mat-icon-button>
 				       <mat-icon>settings</mat-icon>
 				    </button>
-      			</mat-list-item>
+      			</mat-list-item> -->
       			<mat-list-item>
       				<a matLine >Help</a>
 				    <button mat-icon-button>
@@ -32,9 +32,9 @@
 
       			<mat-divider></mat-divider>
 
-      			<mat-list-item>
+      			<mat-list-item id="Logout" (click)="logout()" >
       				<a matLine >Logout</a>
-				    <button mat-icon-button (click)="logout()">
+				    <button mat-icon-button >
 				       <mat-icon>exit_to_app</mat-icon>
 				    </button>
       			</mat-list-item>

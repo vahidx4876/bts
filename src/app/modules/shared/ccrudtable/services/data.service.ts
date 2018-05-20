@@ -5,11 +5,12 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 
 @Injectable()
 export class DataService {
-  private readonly API_URL = 'https://api.github.com/repos/angular/angular/issues';
-
+  // private readonly API_URL = 'https://api.github.com/repos/angular/angular/issues';
+  private readonly API_URL = 'http://localhost:3000/api/btsEventTable';
   dataChange: BehaviorSubject<Issue[]> = new BehaviorSubject<Issue[]>([]);
   // Temporarily stores data from dialogs
   dialogData: any;
+  public rawData : Issue[];
 
   constructor (private httpClient: HttpClient) {}
 
@@ -24,6 +25,8 @@ export class DataService {
   /** CRUD METHODS */
   getAllIssues(): void {
     this.httpClient.get<Issue[]>(this.API_URL).subscribe(data => {
+      this.rawData = data;
+     // console.log(data);
         this.dataChange.next(data);
       },
       (error: HttpErrorResponse) => {

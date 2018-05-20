@@ -17,8 +17,7 @@ export class LoginComponent implements OnInit {
 
   loginUserData = {}
 
-  constructor(private _auth: AuthService,
-              private _router: Router) { }
+  constructor(private _auth: AuthService, private _router: Router) { }
 
   ngOnInit() {
   
@@ -29,7 +28,7 @@ export class LoginComponent implements OnInit {
   
   goRegistern(id:string , name: string) {
     this._router.navigate(['/login/btsregister']).then(nav => {
-      console.log(nav); // true if navigation is successful
+      console.log(nav+ "go to register"); // true if navigation is successful
     }, err => {
       console.log(err) // when there's an error
     });

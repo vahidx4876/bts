@@ -19,9 +19,9 @@ You have {{ notifications?.length }} new notifications</div>
         	</button>
       	</div>
       	<div *ngIf="notifications?.length !== 0; then thenBlock else elseBlock;"></div>
-      	<div class="footer" fxLayout="row" fxLayoutAlign="center center">
+      	<!-- <div class="footer" fxLayout="row" fxLayoutAlign="center center">
         	<div class="action">Mark all as read</div>
-    	</div>
+    	</div> -->
     </div>
 
 	</div>
@@ -48,6 +48,6 @@ You have {{ notifications?.length }} new notifications</div>
 </ng-template>
 
 <ng-template #elseBlock>
-  <div class="no" fxLayout="row" fxLayoutAlign="center center">暂无通知</div>
+  <div class="no" fxLayout="row" fxLayoutAlign="center center"> </div>
 </ng-template>
 

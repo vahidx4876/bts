@@ -23,7 +23,13 @@ export class AuthService {
 
   logoutUser() {
     localStorage.removeItem('token')
-    this._router.navigate(['/login'])
+		console.log("Logout");
+		this._router.navigate(['/login/btslogin',{'id':"" ,'name':''}]).then(nav => {
+      console.log(nav);
+		}, err => {
+		  console.log(err) // when there's an error
+		});
+
   }
 
   getToken() {

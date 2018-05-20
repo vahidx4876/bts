@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, HostListener, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../glogin/btslogin/auth.service';
 
 @Component({
   selector: 'cdk-user-menu',
@@ -23,21 +24,19 @@ export class UserMenuComponent implements OnInit {
     	const clickedInside = this.elementRef.nativeElement.contains(targetElement);
     	if (!clickedInside) {
       		this.isOpen = false;
-    	}
+    	}else{
+	
+				if (targetElement.id == 'Logout') {
+		
+				}
+			}
   	}
   	
-    
-  	constructor(private elementRef: ElementRef ,private  router : Router ) { }
-
-	  logout(id:string , name: string) {
-		this.router.navigate(['login','bts',{'id':id ,'name':name}]).then(nav => {
-		  console.log(nav+"pin from dtaeail "); // true if navigation is successful
-		}, err => {
-		  console.log(err) // when there's an error
-		});
-	
+		constructor(private elementRef: ElementRef , private _authService: AuthService ) { }
+ 
+		logout(){
+			this._authService.logoutUser();
 		}
-
 
 	//   app-login
   	ngOnInit() {

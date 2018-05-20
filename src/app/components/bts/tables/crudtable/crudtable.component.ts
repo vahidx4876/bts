@@ -26,7 +26,7 @@ import { DeleteDialogComponent } from '../../../../dialogs/delete/delete.dialog.
   styleUrls: ['./crudtable.component.scss']
 })
 export class CrudtableComponent implements OnInit {
-  displayedColumns = ['id', 'title', 'state', 'url', 'created_at', 'updated_at','time', 'actions'];
+  displayedColumns = ['actions','id', 'title', 'state', 'url', 'created_at', 'updated_at','time', ];
   exampleDatabase: DataService | null;
   dataSource: ExampleDataSource | null;
   index: number;

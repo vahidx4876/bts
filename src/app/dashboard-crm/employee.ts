@@ -50,3 +50,13 @@ export interface IBTSCard {
   
 }
 
+
+export interface IDevices {
+    id: string,
+    name: string,
+    long: number,
+    lat: number,
+    alarmStatus: string,
+
+  
+}

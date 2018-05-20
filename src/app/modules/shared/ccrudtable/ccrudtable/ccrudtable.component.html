@@ -28,42 +28,35 @@
 
                  <div class="pdiv">
                             
-                      <app-moadalga  (click)="onImgClick()" ></app-moadalga>   
+                      <app-moadalga [images]="eventImages" (click)="onImgClick()" ></app-moadalga>   
                     
                  </div>                
               </mat-cell>
               </ng-container>
   
       <!-- ID Column -->
-      <ng-container matColumnDef="id">
+      <!-- <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
         <mat-cell *matCellDef="let row" style="text-align: center" >{{row.id}}</mat-cell>
-      </ng-container>
+      </ng-container> -->
+      
+      <ng-container matColumnDef="btsName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>BtsName</mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.btsName}}</mat-cell>
+        </ng-container>
+
+        
+        <ng-container matColumnDef="eventReason">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>EventReason</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.eventReason}}</mat-cell>
+          </ng-container>
   
-      <ng-container matColumnDef="title">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.title}}</mat-cell>
-      </ng-container>
+                  
+        <ng-container matColumnDef="time">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Time</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.time}}</mat-cell>
+          </ng-container>
   
-      <ng-container matColumnDef="state">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>State</mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.state}}</mat-cell>
-      </ng-container>
-  
-      <ng-container matColumnDef="url">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Url</mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.url}}</mat-cell>
-      </ng-container>
-  
-      <ng-container matColumnDef="created_at">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Created at</mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.created_at}}</mat-cell>
-      </ng-container>
-  
-      <ng-container matColumnDef="updated_at">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Updated at</mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.updated_at}}</mat-cell>
-      </ng-container>
   
       <!-- actions -->
       <ng-container matColumnDef="actions">
@@ -78,7 +71,7 @@
             <mat-icon aria-label="Edit">edit</mat-icon>
           </button> -->
   
-          <button mat-icon-button color="accent" (click)="deleteItem(i, row.id, row.title, row.state, row.url)">
+          <button mat-icon-button color="accent" (click)="deleteItem(i,row.btsName,row.eventReason,row.time)">
             <mat-icon aria-label="Delete">delete</mat-icon>
           </button>
         </mat-cell>

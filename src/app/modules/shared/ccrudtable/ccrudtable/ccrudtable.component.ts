@@ -14,10 +14,11 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import { DataService } from '../services/data.service';
-import { Issue } from '../models/issue';
+import { Issue, MImage, ToatalImg } from '../models/issue';
 import { AddDialogComponent } from '../dialogs/add/add.dialog.component';
 import { EditDialogComponent } from '../dialogs/edit/edit.dialog.component';
 import { DeleteDialogComponent } from '../dialogs/delete/delete.dialog.component';
+import { Image } from 'angular-modal-gallery';
 
 
 
@@ -27,7 +28,10 @@ import { DeleteDialogComponent } from '../dialogs/delete/delete.dialog.component
   styleUrls: ['./ccrudtable.component.scss']
 })
 export class CcrudtableComponent implements OnInit {
-  displayedColumns = ['actions','id', 'title', 'state', 'url', 'created_at', 'updated_at','image'];
+
+ public eventImages: ToatalImg[];
+  btsName: string;
+  displayedColumns = ['actions', 'btsName','eventReason','time','image'];
   exampleDatabase: DataService | null;
   dataSource: ExampleDataSource | null;
   index: number;
@@ -43,6 +47,7 @@ export class CcrudtableComponent implements OnInit {
   @ViewChild('filter') filter: ElementRef;
 
   ngOnInit() {
+   
     this.loadData();
   }
 
@@ -51,7 +56,7 @@ export class CcrudtableComponent implements OnInit {
   }
 
   onImgClick(){
-    console.log("hello");
+    console.log("helloererer");
   }
 
   addNew(issue: Issue) {
@@ -89,17 +94,17 @@ export class CcrudtableComponent implements OnInit {
       }
     });
   }
-
-  deleteItem(i: number, id: number, title: string, state: string, url: string) {
+  //i,row.btsName,row.eventReason,row.time
+  deleteItem(i: number, btsName : string , eventReason:string, time:string ) {
     this.index = i;
-    this.id = id;
+   this.btsName = btsName ;
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: {id: id, title: title, state: state, url: url}
+      data: {btsName: btsName, eventReason: eventReason, time: time}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 1) {
-        const foundIndex = this.exampleDatabase.dataChange.value.findIndex(x => x.id === this.id);
+        const foundIndex = this.exampleDatabase.dataChange.value.findIndex(x => x.btsName === this.btsName);
         // for delete we use splice in order to remove single object from DataService
         this.exampleDatabase.dataChange.value.splice(foundIndex, 1);
         this.refreshTable();
@@ -127,7 +132,10 @@ export class CcrudtableComponent implements OnInit {
 
   public loadData() {
     this.exampleDatabase = new DataService(this.httpClient);
+
     this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort);
+
+     this.eventImages = this.dataSource.eventImages;
     Observable.fromEvent(this.filter.nativeElement, 'keyup')
       .debounceTime(150)
       .distinctUntilChanged()
@@ -142,6 +150,7 @@ export class CcrudtableComponent implements OnInit {
 
 
 export class ExampleDataSource extends DataSource<Issue> {
+  eventImages: ToatalImg[] = [];
   _filterChange = new BehaviorSubject('');
 
   get filter(): string {
@@ -175,10 +184,20 @@ export class ExampleDataSource extends DataSource<Issue> {
 
     this._exampleDatabase.getAllIssues();
 
+
+  //   for (var _i = 0; _i < this._exampleDatabase.rawData.length; _i++) {
+  //     var img = this._exampleDatabase.rawData[_i].images;
+  //    // this.eventImages.push(new ToatalImg(img));
+  //     // this.eventImages[_i].images=img.images;
+  //    // console.log(img);
+  // }
+  
+  // console.log(this.eventImages);
+
     return Observable.merge(...displayDataChanges).map(() => {
       // Filter data
       this.filteredData = this._exampleDatabase.data.slice().filter((issue: Issue) => {
-        const searchStr = (issue.id + issue.title + issue.url + issue.created_at).toLowerCase();
+        const searchStr = (issue.btsName + issue.eventReason + issue.time).toLowerCase();
         return searchStr.indexOf(this.filter.toLowerCase()) !== -1;
       });
 
@@ -208,11 +227,10 @@ export class ExampleDataSource extends DataSource<Issue> {
 
       switch (this._sort.active) {
         case 'id': [propertyA, propertyB] = [a.id, b.id]; break;
-        case 'title': [propertyA, propertyB] = [a.title, b.title]; break;
-        case 'state': [propertyA, propertyB] = [a.state, b.state]; break;
-        case 'url': [propertyA, propertyB] = [a.url, b.url]; break;
-        case 'created_at': [propertyA, propertyB] = [a.created_at, b.created_at]; break;
-        case 'updated_at': [propertyA, propertyB] = [a.updated_at, b.updated_at]; break;
+        case 'eventReason': [propertyA, propertyB] = [a.title, b.title]; break;
+        case 'btsName': [propertyA, propertyB] = [a.btsName, b.btsName]; break;
+        case 'time': [propertyA, propertyB] = [a.time, b.time]; break;
+ 
       
       }
 

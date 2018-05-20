@@ -6,11 +6,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { Router } from '@angular/router'
 import { ModuleWithProviders } from '@angular/compiler/src/core';
 
+
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    
   ],
   exports:[CommonModule],
   declarations: []
