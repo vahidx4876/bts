@@ -1,18 +1,22 @@
 
-<div  fxLayout="column"  fxLayoutWrap>
+<div  fxLayout="column"  fxLayoutWrap fxLayoutGap="-1px">
     <mat-card  class="mattab" >
             <mat-card-content>
-                    <h2 class="example-h2">BTS GENERAL</h2>
-                      
-        <div fxLayout="row" fxLayoutWrap  >
+          <!-- <h2 class="example-h2">BTS GENERAL</h2>       -->
+        <div fxLayout="row"  fxLayoutGap="10px" >      
                 <div  *ngFor="let dash of btsData"   fxFlex.lt-sm="100"  fxFlex.sm="50" fxFlex.md="50" >
                     <cdk-dashcard [isdashboard]="true"  [btsData]="dash" ></cdk-dashcard>
                 </div>
             </div>
+
+            
             </mat-card-content>
+        </mat-card>
+        <mat-card  class="mattab" >
             <mat-card-content>
-                    <cdk-google-map [markers]="markers"></cdk-google-map>   
+                    <cdk-google-map [markers]="markers" ></cdk-google-map>   
             </mat-card-content>
+        
             <mat-card-content>    
                     <app-infotable ></app-infotable>
             </mat-card-content>

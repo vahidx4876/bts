@@ -1,23 +1,23 @@
 export const ToolbarHelpers = {
 	notifications: [
-  		// {
-	    //     id: 'id',
-	    //     title: 'Mail 5',
-	    //     lastTime: '23 Minutes ago',
-	    //     state: 'state'
-	    // },
-	    // {
-	    //     id: 'id',
-	    //     title: 'Mail 5',
-	    //     lastTime: '23 Minutes ago',
-	    //     state: 'state'
-	    // },
-	    // {
-	    //     id: 'id',
-	    //     title: 'Mail 5',
-	    //     lastTime: '23 Minutes ago',
-	    //     state: 'state'
-	    // },
+  		{
+	        id: '123QWE',
+	        title: 'Ahwaz B1',
+	        lastTime: '23 Minutes ago',
+	        state: 'Door open'
+	    },
+	    {
+	        id: '123QWM',
+	        title: 'Isfehan B1',
+	        lastTime: '23 Minutes ago',
+	        state: 'High Humidity'
+	    },
+	    {
+	        id: '123FDE',
+	        title: 'Tehran C1',
+	        lastTime: '23 Minutes ago',
+	        state: 'Bat Low Voltage'
+	    },
 	],
 
 	currentUser: {

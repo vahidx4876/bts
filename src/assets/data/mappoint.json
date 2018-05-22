@@ -1,10 +1,10 @@
  [
 {"lat":35.725298, "lng": 51.404343, "label": "Tehran1","draggable": false , "radius":1000 , "fillColor":"red","circleDraggable" : false ,"editable":false },
-{"lat":35.7133298, "lng": 51.404343, "label": "Tehra2","draggable": false , "radius":2000 , "fillColor":"blue","circleDraggable" : false ,"editable":false },
-{"lat":35.0, "lng": 51.404343, "label": "Tehran3","draggable": false , "radius":300 , "fillColor":"green","circleDraggable" : false ,"editable":false },
-{"lat":35.7, "lng": 51.404343, "label": "Tehran4","draggable": false , "radius":300 , "fillColor":"red","circleDraggable" : false ,"editable":false },
-{"lat":35.65444, "lng": 51.404343, "label": "Tehran5","draggable": false , "radius":2000 , "fillColor":"blue","circleDraggable" : false ,"editable":false },
-{"lat":35.77, "lng": 51.404343, "label": "Tehran6","draggable": false , "radius":6000 , "fillColor":"red","circleDraggable" : false ,"editable":false },
+{"lat":35.7133298, "lng": 51.404343, "label": "Tehra2","draggable": false , "radius":1000 , "fillColor":"blue","circleDraggable" : false ,"editable":false },
+{"lat":35.0, "lng": 51.404343, "label": "Tehran3","draggable": false , "radius":1000 , "fillColor":"green","circleDraggable" : false ,"editable":false },
+{"lat":35.7, "lng": 51.404343, "label": "Tehran4","draggable": false , "radius":1000 , "fillColor":"red","circleDraggable" : false ,"editable":false },
+{"lat":35.65444, "lng": 51.404343, "label": "Tehran5","draggable": false , "radius":1000 , "fillColor":"blue","circleDraggable" : false ,"editable":false },
+{"lat":35.77, "lng": 51.404343, "label": "Tehran6","draggable": false , "radius":100 , "fillColor":"red","circleDraggable" : false ,"editable":false },
 {"lat":35.7000, "lng": 51.504343, "label": "Tehran7","draggable": false , "radius":1000 , "fillColor":"red","circleDraggable" : false ,"editable":false }
 
 ]

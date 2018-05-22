@@ -14,6 +14,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 import { BTSDashService } from './employee.service';
+import { DataService } from '../components/bts/tables/infotable/DataService';
+import { ServicesModule } from '../modules/shared/services/services.module';
+
+
 
 
 export const appRoutes: Routes = [
@@ -22,7 +26,7 @@ export const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-
+    ServicesModule,
     MatSortModule,
     MatFormFieldModule,
     MatTableModule,
@@ -48,6 +52,6 @@ export const appRoutes: Routes = [
   ],
   declarations: [DashboardCrmComponent,GoogleMapComponent,InfotableComponent],
   exports:[ ],
-  providers:[BTSDashService]
+  providers:[BTSDashService,DataService]
 })
 export class DashboardCrmModule { }

@@ -26,7 +26,10 @@ import { DeleteDialogComponent } from '../../../../dialogs/delete/delete.dialog.
   styleUrls: ['./crudtable.component.scss']
 })
 export class CrudtableComponent implements OnInit {
-  displayedColumns = ['actions','id', 'title', 'state', 'url', 'created_at', 'updated_at','time', ];
+ 
+  btsName: string;
+  btsID: string;
+  displayedColumns = ['actions','btsID', 'btsName', 'latLoc', 'longLoc', 'username','time', ];
   exampleDatabase: DataService | null;
   dataSource: ExampleDataSource | null;
   index: number;
@@ -50,6 +53,8 @@ export class CrudtableComponent implements OnInit {
   }
 
   addNew(issue: Issue) {
+
+    console.log("ADDDDDDD");
     const dialogRef = this.dialog.open(AddDialogComponent, {
       data: {issue: issue }
     });
@@ -64,19 +69,19 @@ export class CrudtableComponent implements OnInit {
     });
   }
 
-  startEdit(i: number, id: number, title: string, state: string, url: string, created_at: string, updated_at: string) {
-    this.id = id;
+  startEdit(i: number, btsID: string, btsName: string, latLoc: string, longLoc: string , time:string) {
+    this.btsID = btsID;
     // index row is used just for debugging proposes and can be removed
     this.index = i;
     console.log(this.index);
     const dialogRef = this.dialog.open(EditDialogComponent, {
-      data: {id: id, title: title, state: state, url: url, created_at: created_at, updated_at: updated_at}
+      data: { btsID: btsID, btsName: btsName, latLoc: latLoc, longLoc: longLoc, time: time }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 1) {
         // When using an edit things are little different, firstly we find record inside DataService by id
-        const foundIndex = this.exampleDatabase.dataChange.value.findIndex(x => x.id === this.id);
+        const foundIndex = this.exampleDatabase.dataChange.value.findIndex(x => x.btsID === this.btsID);
         // Then you update that record using data from dialogData (values you enetered)
         this.exampleDatabase.dataChange.value[foundIndex] = this.dataService.getDialogData();
         // And lastly refresh table
@@ -84,17 +89,17 @@ export class CrudtableComponent implements OnInit {
       }
     });
   }
-
-  deleteItem(i: number, id: number, title: string, state: string, url: string) {
+ 
+  deleteItem(i: number, btsID: string, btsName: string, latLoc: string, longLoc: string , time:string) {
     this.index = i;
-    this.id = id;
+    this.btsName = btsName ;
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: {id: id, title: title, state: state, url: url}
+      data: {btsID: btsID, btsName: btsName, latLoc: latLoc, longLoc: longLoc , time:time}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 1) {
-        const foundIndex = this.exampleDatabase.dataChange.value.findIndex(x => x.id === this.id);
+        const foundIndex = this.exampleDatabase.dataChange.value.findIndex(x => x.btsName === this.btsName);
         // for delete we use splice in order to remove single object from DataService
         this.exampleDatabase.dataChange.value.splice(foundIndex, 1);
         this.refreshTable();
@@ -102,6 +107,13 @@ export class CrudtableComponent implements OnInit {
     });
   }
 
+
+
+mapDataF(mapData:Issue){
+  this.exampleDatabase.dataChange.value.push(mapData);
+  this.refreshTable();
+  console.log(mapData);
+}
 
   // If you don't need a filter or a pagination this can be simplified, you just use code from else block
   private refreshTable() {
@@ -141,6 +153,7 @@ class MapData {
   lat : number;
   lng : number;
   makeTime : string;
+  username : string;
   constructor() {
       
   }
@@ -183,7 +196,7 @@ export class ExampleDataSource extends DataSource<Issue> {
     return Observable.merge(...displayDataChanges).map(() => {
       // Filter data
       this.filteredData = this._exampleDatabase.data.slice().filter((issue: Issue) => {
-        const searchStr = (issue.id + issue.title + issue.url + issue.created_at).toLowerCase();
+        const searchStr = (issue.btsID + issue.btsName + issue.latLoc + issue.longLoc + issue.time + issue.username).toLowerCase();
         return searchStr.indexOf(this.filter.toLowerCase()) !== -1;
       });
 
@@ -212,13 +225,14 @@ export class ExampleDataSource extends DataSource<Issue> {
       let propertyB: number | string = '';
 
       switch (this._sort.active) {
-        case 'id': [propertyA, propertyB] = [a.id, b.id]; break;
-        case 'title': [propertyA, propertyB] = [a.title, b.title]; break;
-        case 'state': [propertyA, propertyB] = [a.state, b.state]; break;
-        case 'url': [propertyA, propertyB] = [a.url, b.url]; break;
-        case 'created_at': [propertyA, propertyB] = [a.created_at, b.created_at]; break;
-        case 'updated_at': [propertyA, propertyB] = [a.updated_at, b.updated_at]; break;
+        case 'btsID': [propertyA, propertyB] = [a.btsID, b.btsID]; break;
+        case 'btsName': [propertyA, propertyB] = [a.btsName, b.btsName]; break;
+        case 'longLoc': [propertyA, propertyB] = [a.longLoc, b.longLoc]; break;
+        case 'latLoc': [propertyA, propertyB] = [a.latLoc, b.latLoc]; break;
         case 'time': [propertyA, propertyB] = [a.time, b.time]; break;
+        case 'username': [propertyA, propertyB] = [a.username, b.username]; break;
+    
+ 
       }
 
       const valueA = isNaN(+propertyA) ? propertyA : +propertyA;

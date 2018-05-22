@@ -46,6 +46,7 @@
           [latitude]="m.lat"
           [longitude]="m.lng"
           [label]="m.label"
+          [iconUrl]="geti()"
           [markerDraggable]="m.draggable"
           (dragEnd)="markerDragEnd(m, $event)">
           

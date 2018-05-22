@@ -1,6 +1,6 @@
 
 
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, Input, Output, EventEmitter} from '@angular/core';
 
 import {HttpClient} from '@angular/common/http';
 import {MatDialog, MatPaginator, MatSort} from '@angular/material';
@@ -29,6 +29,18 @@ import { Image } from 'angular-modal-gallery';
 })
 export class CcrudtableComponent implements OnInit {
 
+  @Input("parentCount")
+  count: boolean;
+  
+  @Output()
+  change: EventEmitter<boolean> = new EventEmitter<boolean>();
+  
+  updateCount() {
+    this.count = false;
+    this.change.emit(this.count);
+  }
+
+
  public eventImages: ToatalImg[];
   btsName: string;
   displayedColumns = ['actions', 'btsName','eventReason','time','image'];
@@ -55,8 +67,8 @@ export class CcrudtableComponent implements OnInit {
     this.loadData();
   }
 
-  onImgClick(){
-    console.log("helloererer");
+  onImgClick(modalImage :Image[]){
+    // console.log(modalImage);
   }
 
   addNew(issue: Issue) {
@@ -183,16 +195,6 @@ export class ExampleDataSource extends DataSource<Issue> {
     ];
 
     this._exampleDatabase.getAllIssues();
-
-
-  //   for (var _i = 0; _i < this._exampleDatabase.rawData.length; _i++) {
-  //     var img = this._exampleDatabase.rawData[_i].images;
-  //    // this.eventImages.push(new ToatalImg(img));
-  //     // this.eventImages[_i].images=img.images;
-  //    // console.log(img);
-  // }
-  
-  // console.log(this.eventImages);
 
     return Observable.merge(...displayDataChanges).map(() => {
       // Filter data

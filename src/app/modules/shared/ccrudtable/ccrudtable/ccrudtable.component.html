@@ -1,10 +1,10 @@
 <mat-toolbar color="primary">
     <span>Events</span>
-    <span class="spacer"></span>
+    <!-- <span class="spacer"></span>
     Reload data:
     <button mat-icon-button (click)="refresh()">
       <mat-icon>refresh</mat-icon>
-    </button>
+    </button> -->
   </mat-toolbar>
   
   <div class="container mat-elevation-z8">
@@ -27,8 +27,8 @@
               <mat-cell *matCellDef="let row"> 	
 
                  <div class="pdiv">
-                            
-                      <app-moadalga [images]="eventImages" (click)="onImgClick()" ></app-moadalga>   
+                            <!-- {{row.images}} -->
+                   <app-moadalga [images]="row.images" (click)="onImgClick(row.images)" ></app-moadalga>   
                     
                  </div>                
               </mat-cell>
@@ -61,6 +61,7 @@
       <!-- actions -->
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>
+          Delete
           <!-- <button mat-icon-button color="primary" (click)="addNew()">
             <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
           </button> -->

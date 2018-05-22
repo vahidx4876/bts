@@ -1,6 +1,6 @@
 [
-    {"stroke": "12" ,"title":"coil", "current":"34" ,"max":"100","background": "#FFF968","color" :"#B1A7FF","boxcolor":"#7986CB"},
-    {"stroke": "12" ,"title":"Heat", "current":"67" ,"max":"100","background": "#FFE268","color" :"#A7C1FF","boxcolor":"#42A5F5"},
-    {"stroke": "12" ,"title":"voltag", "current":"20" ,"max":"100","background": "#FFC368","color" :"#A7F0FF","boxcolor":"#26A69A"},
-    {"stroke": "12" ,"title":"Fan", "current": "50" ,"max":"100","background": "#FFCF68","color" :"#A7DEFF","boxcolor":"#26C6DA"}
+    {"stroke": "12" ,"title":"Humidity", "current":"20" ,"max":"100","background": "#FFF968","color" :"#B1A7FF","boxcolor":"#7986CB"},
+    {"stroke": "12" ,"title":"Temp", "current":"35" ,"max":"100","background": "#FFE268","color" :"#A7C1FF","boxcolor":"#42A5F5"},
+    {"stroke": "12" ,"title":"Main Bat Volt", "current":"14" ,"max":"100","background": "#FFC368","color" :"#A7F0FF","boxcolor":"#26A69A"},
+    {"stroke": "12" ,"title":"Int Bat volt", "current": "14" ,"max":"100","background": "#FFCF68","color" :"#A7DEFF","boxcolor":"#26C6DA"}
 ]

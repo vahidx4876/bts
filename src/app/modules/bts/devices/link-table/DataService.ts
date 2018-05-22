@@ -1,15 +1,17 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Issue} from '../models/issue';
+
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { Issue } from './model';
 
 @Injectable()
 export class DataService {
-  private readonly API_URL = 'http://localhost:3000/API/editDevices';
-
+  // private readonly API_URL = 'https://api.github.com/repos/angular/angular/issues';
+  private readonly API_URL = 'http://localhost:3000/api/btsLinkTable';
   dataChange: BehaviorSubject<Issue[]> = new BehaviorSubject<Issue[]>([]);
   // Temporarily stores data from dialogs
   dialogData: any;
+  public rawData : Issue[];
 
   constructor (private httpClient: HttpClient) {}
 
@@ -24,7 +26,8 @@ export class DataService {
   /** CRUD METHODS */
   getAllIssues(): void {
     this.httpClient.get<Issue[]>(this.API_URL).subscribe(data => {
-    console.log(data);
+      this.rawData = data;
+     // console.log(data);
         this.dataChange.next(data);
       },
       (error: HttpErrorResponse) => {
@@ -34,7 +37,6 @@ export class DataService {
 
   // DEMO ONLY, you can find working methods below
   addIssue (issue: Issue): void {
-    console.log(issue);
     this.dialogData = issue;
   }
 
@@ -43,7 +45,6 @@ export class DataService {
   }
 
   deleteIssue (id: number): void {
- 
     console.log(id);
   }
 }

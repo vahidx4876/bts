@@ -28,7 +28,15 @@ import { marker } from '../../components/bts/login/models/bts/MapData';
 	constructor(private mapsAPILoader: MapsAPILoader ,private router : Router) {
 
   this.xrouter = router;
-	}
+  }
+  
+  geti():string{
+    // return "../../../bmarker.png";
+    return "https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_yellowA.png";
+    //https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_yellowZ.png
+    //https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_redZ.png
+   // https://github.com/Concept211/Google-Maps-Markers#examples
+  }
 
   ngOnInit() {
 

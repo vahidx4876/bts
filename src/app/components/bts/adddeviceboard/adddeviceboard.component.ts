@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { marker } from '../login/models/bts/MapData';
+import { DataService } from '../../../services/data.service';
+import { Issue } from '../../../models/issue';
+import { PlayerService } from '../../../modules/shared/services/player.service';
+import { AuthService } from '../../../glogin/btslogin/auth.service';
 
 @Component({
   selector: 'app-adddeviceboard',
@@ -10,6 +14,21 @@ import { marker } from '../login/models/bts/MapData';
 export class AdddeviceboardComponent implements OnInit {
 
 
+  
+
+  user: string;
+  isu: Issue;
+  constructor(private  _playerService :PlayerService , private _authService : AuthService){
+    this.user = _authService.username ;
+  var sound =  _playerService.sound;
+  if(sound != null) sound.stop();
+    this.isu = new Issue();
+    this.isu.btsID = "123ewq";
+    this.isu.btsName = "Test";
+    this.isu.latLoc = 323232;
+    this.isu.longLoc = 544545454;
+    this.isu.time = "12/345/3434";
+  }
 
    latc: number = 35.715298;
    lngc : number = 51.404343;
@@ -27,14 +46,14 @@ export class AdddeviceboardComponent implements OnInit {
 
 
 
- public mapData : mapData;
+ public mapData : Issue;
 
 
   latValue : number = 0 ;
   longValue : number = 0;
   btsId : string = "";
   btsName: string = "";
-  constructor() { }
+
 
   ngOnInit() {
 
@@ -50,23 +69,21 @@ return true;
   }
   onKeyLong(event: any) { // without type info
     this.longValue =  event.target.value ;
-    
-     this.latc = this.latValue /1;
-     this.lngc = this.longValue/1;
+
     
     if(this.longValue as number)
     if(this.checkInfo()){
-      this.markers.splice(0,1);
+     this.latc = this.latValue /1;
+     this.lngc = this.longValue/1;
+           this.markers.splice(0,1);
       this.markers.push({
     
         lat: this.latValue /1,
         lng:  this.longValue/1,
         label: this.btsName,
         draggable: false,
-
-
       });
-
+      this.onSave();
       console.log(this.markers);
   
     }
@@ -78,21 +95,25 @@ return true;
  this.btsName = "";
  this.latValue = 0;
  this.longValue = 0;
+ if(this.markers != null)
+ this.markers.splice(0,1);
 
   }
 
   onSave(){
+ 
   let  pipe = new DatePipe('en-US'); // Use your own locale
   const now = Date.now();
 let myFormattedDate = pipe.transform(now, 'long');
- let mapD = new mapData();
+ let mapD = new Issue();
  mapD.btsID = this.btsId;
  mapD.btsName = this.btsName;
- mapD.lat = this.latValue;
- mapD.lng = this.longValue;
- mapD.makeTime = myFormattedDate.toString();
+ mapD.latLoc = this.latValue;
+ mapD.longLoc = this.longValue;
+ mapD.time = myFormattedDate.toString();
+ mapD.username = (this.user)? this.user : "No define";
 this.mapData = mapD;
-console.log(mapD);
+
 
   }
   onKeyLat(event: any) { // without type info
@@ -111,7 +132,7 @@ this.lngc = this.longValue/1,
 
       });
 
-  
+      this.onSave();
       console.log(this.markers);
 
     }
@@ -140,7 +161,8 @@ class mapData {
   btsID: string;
   lat : number;
   lng : number;
-  makeTime : string;
+  time : string;
+  username : string;
   constructor() {
       
   }

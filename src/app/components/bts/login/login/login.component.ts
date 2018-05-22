@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
       res => {
         console.log(res.token);
         localStorage.setItem('token', res.token)
+        this._auth.username = "King Stone";
         this._router.navigate(['/auth/dashboard'])
       },
       err => console.log(err)

@@ -19,6 +19,47 @@ export class MoadalgaComponent implements OnInit {
 
   ngOnInit(){
 
+ var  iimg : Image[] = [
+      new Image(
+        0,
+        { // modal
+          img: 'https://raw.githubusercontent.com/Ks89/angular-modal-gallery/v4/examples/systemjs/assets/images/gallery/img1.jpg',
+          description: 'Description 0'
+        }
+      ),
+      new Image(
+        1,
+        { // modal
+          img: 'https://raw.githubusercontent.com/Ks89/angular-modal-gallery/v4/examples/systemjs/assets/images/gallery/img2.png',
+          description: 'Description 1'
+        }
+      ),
+      new Image(
+        2,
+        { // modal
+          img: 'https://raw.githubusercontent.com/Ks89/angular-modal-gallery/v4/examples/systemjs/assets/images/gallery/img3.jpg',
+          description: 'Description 2fgfgfgfg',
+        
+        }
+      ),
+      new Image(
+        3,
+        { // modal
+          img: 'https://raw.githubusercontent.com/Ks89/angular-modal-gallery/v4/examples/systemjs/assets/images/gallery/img4.jpg',
+          description: 'Description 4',
+          extUrl: 'http://www.google.com'
+        }
+      ),
+      new Image(
+        4,
+        { // modal
+          img: 'https://raw.githubusercontent.com/Ks89/angular-modal-gallery/v4/examples/systemjs/assets/images/gallery/img5.jpg'
+        }
+      )
+    ];
+
+
+   console.log(JSON.stringify(iimg) ); 
   }
   name: string;
 
@@ -30,17 +71,7 @@ export class MoadalgaComponent implements OnInit {
   galleryId = 1;
 
 
- @Input() public images: Image[] = [
-    new Image(
-      0,
-      { // modal
-        img: 'https://raw.githubusercontent.com/Ks89/angular-modal-gallery/v4/examples/systemjs/assets/images/gallery/img1.jpg',
-        description: 'Description 0'
-      }
-    )
-  ];
-
-
+ @Input() images: Image[] = [];
 
 
   customPlainGalleryRowConfig: PlainGalleryConfig = {

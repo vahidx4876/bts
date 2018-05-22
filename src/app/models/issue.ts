@@ -1,9 +1,8 @@
 export class Issue {
-  id: number;
-  title: string;
-  state: string;
-  url: string;
-  created_at: string;
-  updated_at: string;
-  time : string
+  btsID : string;
+  btsName : string;
+  longLoc : number;
+  latLoc : number;
+  time : string;
+  username : string;
 }

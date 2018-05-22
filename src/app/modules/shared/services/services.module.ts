@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { Router } from '@angular/router'
 import { ModuleWithProviders } from '@angular/compiler/src/core';
+import { PlayerService } from './player.service';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ export class ServicesModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: ServicesModule,
-      providers: [ AuthService ]
+      providers: [ AuthService , PlayerService ]
     };
   }
 

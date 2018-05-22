@@ -16,6 +16,10 @@ import {
 })
 export class AppComponent {
   title = 'app';
+  mohammad:string;
+  constructor(){
+    this.mohammad = "kadivar";
+  }
   getRouteAnimation(outlet) {
       
       return outlet.activatedRouteData.animation

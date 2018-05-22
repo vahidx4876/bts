@@ -8,12 +8,17 @@ import { CoreModule } from './core/core.module';
 import { ServicesModule } from './modules/shared/services/services.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
+  
 
   ],
   imports: [
+
+
+  
     BrowserModule,
     LazyLoadModule,
     CoreModule,

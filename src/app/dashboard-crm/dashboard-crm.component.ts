@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BTSDashService } from './employee.service';
 import { marker } from '../components/bts/login/models/bts/MapData';
+import { PlayerService } from '../modules/shared/services/player.service';
 
 @Component({
   selector: 'app-dashboard-crm',
@@ -44,9 +45,13 @@ export class DashboardCrmComponent implements OnInit {
    
 
 
-    constructor(private _employeeService:BTSDashService) { }
+    constructor(private _employeeService:BTSDashService , private playerSer : PlayerService) { }
 
      ngOnInit() {
+
+     var player = this.playerSer.player('../assets/HouseFireAlarm.mp3',true,0.8);
+     player.play();
+   //this.playerSer.sound.play();
     this._employeeService.getDaschcard()
       .subscribe(data => {this.btsData = data;
     console.log(data);

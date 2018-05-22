@@ -12,9 +12,7 @@ import 'rxjs/add/observable/fromEvent';
 
 const COLORS = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
   'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
-const NAMES = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
-  'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
-  'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
+const NAMES = ['Ahvaz', 'kermanshah', 'Tehran', 'Kerman', 'shiraz'];
 
  /** An example database that the data source uses to retrieve data for the table. */
 export class ExampleDatabase {
@@ -41,11 +39,11 @@ export class ExampleDatabase {
         NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
 
     return {
-      id: (this.data.length + 1).toString(),
-      name: name,
-      progress: Math.round(Math.random() * 100).toString(),
+      id: (this.data.length + 1).toString()+Math.round(Math.random() * 1000).toString(),
+      name: name +Math.round(Math.random() * 6).toString(),
+      progress: "2017-"+Math.round(Math.random() * 12).toString()+"-15T13:45:30 -> 1:45:30 ",
       color: COLORS[Math.round(Math.random() * (COLORS.length - 1))],
-      position : Math.round(Math.random() * 100).toString(),
+      position : "Deatach power"+ Math.round(Math.random() * 20).toString(),
     };
   }
 }

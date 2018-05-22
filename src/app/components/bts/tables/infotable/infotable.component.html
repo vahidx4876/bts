@@ -1,46 +1,82 @@
-<div class="example-header">
-  <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  </mat-form-field>
-</div>
+<mat-toolbar color="primary">
+  <span>Bts Log</span>
+  <span class="spacer"></span>
+  <!-- Reload
+  <button mat-icon-button (click)="refresh()">
+    <mat-icon>refresh</mat-icon>
+  </button> -->
+</mat-toolbar>
 
-<div class="example-container mat-elevation-z8">
+<div class="container mat-elevation-z8">
 
-  <mat-table [dataSource]="dataSource" matSort>
+  <div class="form">
+    <mat-form-field floatPlaceholder="never" color="accent">
+      <input matInput #filter placeholder="Filter issues">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
 
     <!-- ID Column -->
-    <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+    <ng-container matColumnDef="btsID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Bts Id</mat-header-cell>
+      <mat-cell *matCellDef="let row" >{{row.btsID}}</mat-cell>
     </ng-container>
 
-    <!-- Progress Column -->
-    <ng-container matColumnDef="progress">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Progress </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
+    <ng-container matColumnDef="btsName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>BTS Name</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.btsName}}</mat-cell>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+    <ng-container matColumnDef="eventReason">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Event Reason</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.eventReason}}</mat-cell>
     </ng-container>
 
-    <!-- Color Column -->
-    <ng-container matColumnDef="color">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Color </mat-header-cell>
-      <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>
+    <ng-container matColumnDef="time">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Time</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.time}}</mat-cell>
     </ng-container>
+
+
+
+    <!-- actions -->
+    <!-- <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button color="primary" (click)="addNew()">
+          <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+        </button>
+      </mat-header-cell>
+   
+      <mat-cell *matCellDef="let row; let i=index;">
+        <button mat-icon-button color="accent" (click)="startEdit(i, row.btsID, row.btsName, row.latLoc, row.longLoc, row.time)">
+          <mat-icon aria-label="Edit">edit</mat-icon>
+        </button>
+
+        <button mat-icon-button color="accent" (click)="deleteItem(i, row.btsID, row.btsName, row.latLoc, row.longLoc,row.time)">
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container> -->
+
+
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;">
-    </mat-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+  <div class="no-results" [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
+    No results
+  </div>
+
+  <mat-paginator #paginator
+                 [length]="dataSource.filteredData.length"
+                 [pageIndex]="0"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>
 </div>
-
-
-<!-- Copyright 2018 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license -->

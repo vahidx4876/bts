@@ -1,10 +1,10 @@
 <mat-toolbar color="primary">
   <span>CRUD Bts Station</span>
   <span class="spacer"></span>
-  Reload
+  <!-- Reload
   <button mat-icon-button (click)="refresh()">
     <mat-icon>refresh</mat-icon>
-  </button>
+  </button> -->
 </mat-toolbar>
 
 <div class="container mat-elevation-z8">
@@ -21,50 +21,46 @@
           The actual rendered columns are set as a property on the row definition" -->
 
     <!-- ID Column -->
-    <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
-      <mat-cell *matCellDef="let row" >{{row.id}}</mat-cell>
+    <ng-container matColumnDef="btsID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Bts Id</mat-header-cell>
+      <mat-cell *matCellDef="let row" >{{row.btsID}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="title">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.title}}</mat-cell>
+    <ng-container matColumnDef="btsName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>btsName</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.btsName}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="state">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>State</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.state}}</mat-cell>
+    <ng-container matColumnDef="longLoc">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>longLoc</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.longLoc}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="url">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Url</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.url}}</mat-cell>
+    <ng-container matColumnDef="latLoc">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>latLoc</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.latLoc}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="created_at">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Created at</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.created_at}}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="updated_at">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Updated at</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.updated_at}}</mat-cell>
-    </ng-container>
+    <ng-container matColumnDef="username">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>User</mat-header-cell>
+        <mat-cell *matCellDef="let row" >{{row.username}}</mat-cell>
+      </ng-container>
 
     <!-- actions -->
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef>
-        <button mat-icon-button color="primary" (click)="addNew()">
+         Edit |  Delete
+        <!-- <button mat-icon-button color="primary" (click)="addNew()">
           <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
-        </button>
+        </button> -->
       </mat-header-cell>
-
+   
       <mat-cell *matCellDef="let row; let i=index;">
-        <button mat-icon-button color="accent" (click)="startEdit(i, row.id, row.title, row.state, row.url, row.created_at, row.updated_at)">
+        <button mat-icon-button color="accent" (click)="startEdit(i, row.btsID, row.btsName, row.latLoc, row.longLoc, row.time)">
           <mat-icon aria-label="Edit">edit</mat-icon>
         </button>
 
-        <button mat-icon-button color="accent" (click)="deleteItem(i, row.id, row.title, row.state, row.url)">
+        <button mat-icon-button color="accent" (click)="deleteItem(i, row.btsID, row.btsName, row.latLoc, row.longLoc,row.time)">
           <mat-icon aria-label="Delete">delete</mat-icon>
         </button>
       </mat-cell>

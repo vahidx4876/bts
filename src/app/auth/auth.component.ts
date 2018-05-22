@@ -19,6 +19,7 @@ export class AuthComponent implements OnInit{
   matDrawerOpened: boolean = false;
   matDrawerShow: boolean = true;
   sideNavMode: string = 'side';
+  count: boolean = true;
 
   ngOnChanges() {
    this.visibility = this.isVisible ? 'shown' : 'hidden';

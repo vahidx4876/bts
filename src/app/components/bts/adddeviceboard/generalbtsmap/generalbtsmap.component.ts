@@ -79,7 +79,9 @@ export class GeneralbtsmapComponent implements OnInit {
     markerDragEnd(m: marker, $event: MouseEvent) {
       console.log('dragEnd', m, $event);
     }
-
+getm():string{
+  return "bmarker.png";
+}
    @Input() public markers: marker[];
 
 }

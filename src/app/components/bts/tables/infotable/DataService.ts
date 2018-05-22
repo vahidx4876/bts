@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Issue} from '../models/issue';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { Issue } from './model';
 
 @Injectable()
 export class DataService {
-  private readonly API_URL = 'http://localhost:3000/API/editDevices';
+  private readonly API_URL = 'http://localhost:3000/API/btsLogTable';
 
   dataChange: BehaviorSubject<Issue[]> = new BehaviorSubject<Issue[]>([]);
   // Temporarily stores data from dialogs

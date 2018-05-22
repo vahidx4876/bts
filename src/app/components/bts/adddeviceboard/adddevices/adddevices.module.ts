@@ -16,10 +16,12 @@ import { DataService } from '../../../../services/data.service';
 import { EditDialogComponent } from '../../../../dialogs/edit/edit.dialog.component';
 import { AddDialogComponent } from '../../../../dialogs/add/add.dialog.component';
 import { DeleteDialogComponent } from '../../../../dialogs/delete/delete.dialog.component';
+import { ServicesModule } from '../../../../modules/shared/services/services.module';
 
 
 @NgModule({
   imports: [
+    ServicesModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     MatDialogModule,

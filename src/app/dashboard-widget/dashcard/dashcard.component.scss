@@ -13,6 +13,11 @@
 @mixin dashcard($theme) {
 
     .dashcard {
+      
+        height: 100px;
+        background-color:white;
+    }
+    .dashcard2 {
         margin: 10px 5px;
         height: 100px;
         background-color:white;
