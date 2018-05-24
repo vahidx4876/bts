@@ -10,6 +10,7 @@ import { PlayerService } from '../modules/shared/services/player.service';
 })
 export class DashboardCrmComponent implements OnInit {
 
+  fireAlarm: Howl;
     stroke  : string = "12";
 
  public btsData = [];
@@ -45,13 +46,22 @@ export class DashboardCrmComponent implements OnInit {
    
 
 
-    constructor(private _employeeService:BTSDashService , private playerSer : PlayerService) { }
+    constructor(private _employeeService:BTSDashService , private _fireBeep : PlayerService) { }
 
      ngOnInit() {
+      //  if(this._fireBeep.fireSound){
 
-     var player = this.playerSer.player('../assets/HouseFireAlarm.mp3',true,0.8);
-     player.play();
-   //this.playerSer.sound.play();
+      //    this._fireBeep.fireSound.play();
+      //   }
+      //  else {
+      //   this._fireBeep.firePlayer('../assets/HouseFireAlarm.mp3',true,0.8);
+      //   this._fireBeep.fireSound.play();
+      //    this._fireBeep.WaterPlayer('../assets/waterAlaram.mp3',true,0.8);
+      //    this._fireBeep.waterSound.play();
+      // }
+
+    // player.play();
+   
     this._employeeService.getDaschcard()
       .subscribe(data => {this.btsData = data;
     console.log(data);

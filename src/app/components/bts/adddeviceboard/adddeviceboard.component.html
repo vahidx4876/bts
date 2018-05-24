@@ -23,10 +23,11 @@
 								  </p>
 								  <p>
 										  <mat-form-field class="example-full-width">
-												<input matInput placeholder="Long Loc"    [value]="longValue" (keyup)="onKeyLong($event)"  type="number" required>
+												<input matInput  #LongLoc  placeholder="Long Loc"  name="longv"  [(ngModel)]="longValue" (keyup)="onKeyLong(LongLoc)"  type="number" required>
 										  </mat-form-field>
 										  <mat-form-field class="example-full-width">
-												<input matInput placeholder="Lat Loc"    [value]="latValue"  (keyup)="onKeyLat($event)"  type="number" required>
+											<input 	 matInput  #LatLoc placeholder="Lat Loc" name="latv"   [(ngModel)]="latValue"  (keyup)="onKeyLat(LatLoc)"  type="number" required>
+										
 										  </mat-form-field>
 										</p>
 									  
@@ -45,7 +46,7 @@
 					</div>
 					<div  [class.mat-elevation-z2]="!isActive" [class.mat-elevation-z8]="isActive"  fxFlex="70" fxFlex.lt-md="50" style="background: white" fxFlex.lt-sm="100" >
 					  
-						  <app-generalbtsmap [markers]="markers" [lat]="latc" [lng]="lngc"></app-generalbtsmap>
+						  <app-generalbtsmap [markers]="markers" (valueChange)="displayCounter($event)" [lat]="latc" [lng]="lngc"></app-generalbtsmap>
 					</div>
 		  
 		   

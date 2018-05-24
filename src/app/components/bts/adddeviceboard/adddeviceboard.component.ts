@@ -5,6 +5,7 @@ import { DataService } from '../../../services/data.service';
 import { Issue } from '../../../models/issue';
 import { PlayerService } from '../../../modules/shared/services/player.service';
 import { AuthService } from '../../../glogin/btslogin/auth.service';
+import { MatInput } from '@angular/material';
 
 @Component({
   selector: 'app-adddeviceboard',
@@ -19,9 +20,9 @@ export class AdddeviceboardComponent implements OnInit {
   user: string;
   isu: Issue;
   constructor(private  _playerService :PlayerService , private _authService : AuthService){
-    this.user = _authService.username ;
-  var sound =  _playerService.sound;
-  if(sound != null) sound.stop();
+  //   this.user = _authService.username ;
+  // var sound =  _playerService.sound;
+  // if(sound != null) sound.stop();
     this.isu = new Issue();
     this.isu.btsID = "123ewq";
     this.isu.btsName = "Test";
@@ -67,8 +68,8 @@ return true;
     }
     return false;
   }
-  onKeyLong(event: any) { // without type info
-    this.longValue =  event.target.value ;
+  onKeyLong(event: MatInput) { // without type info
+    this.longValue =  event.value ;
 
     
     if(this.longValue as number)
@@ -84,7 +85,7 @@ return true;
         draggable: false,
       });
       this.onSave();
-      console.log(this.markers);
+      //console.log(this.markers);
   
     }
 
@@ -99,6 +100,14 @@ return true;
  this.markers.splice(0,1);
 
   }
+
+  
+  displayCounter(newCor : marker[]) {
+    console.log("child Event",newCor[0]);
+    this.longValue = this.mapData .longLoc = newCor[0].lng;
+    this.latValue = this.mapData.latLoc  = newCor[0].lat;
+
+}
 
   onSave(){
  
@@ -116,8 +125,8 @@ this.mapData = mapD;
 
 
   }
-  onKeyLat(event: any) { // without type info
-    this.latValue = event.target.value ;
+  onKeyLat(event: MatInput) { // without type info
+    this.latValue = event.value ;
     if(this.latValue as number)
     if(this.checkInfo()){
     

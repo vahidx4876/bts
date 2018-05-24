@@ -1,4 +1,4 @@
-import { Component, OnInit , ViewChild , ElementRef, Input } from '@angular/core';
+import { Component, OnInit , ViewChild , ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import { AgmMap, AgmCoreModule, AgmInfoWindow, AgmMarker } from '@agm/core';
 import { MapsAPILoader , MouseEvent } from '@agm/core';
 
@@ -9,11 +9,19 @@ import { MapsAPILoader , MouseEvent } from '@agm/core';
 })
 export class GeneralbtsmapComponent implements OnInit {
 
-
-
   @Input() lat: number = 35.715298;
   @Input() lng : number = 51.404343;
+  @Input() public markers: marker[];
+  newmarker: marker[];
   title: string = 'BTS project';
+  @Output() valueChange = new EventEmitter<marker[]>();
+
+  valueChanged() { // You can give any function name
+   
+    console.log('dragEnd',this.markers);
+      this.valueChange.emit(this.markers);
+    
+  }
 
 	// lat: number = 35.715298;
 	// lng: number = 51.404343;
@@ -38,7 +46,7 @@ export class GeneralbtsmapComponent implements OnInit {
   
     clickedMarker(m: marker, index: number) {
       
-      console.log(`clicked the marker: ${m.label }`)
+    //  console.log(`clicked the marker: ${m.label }`)
     }
     
     mapClicked($event: MouseEvent) {
@@ -75,14 +83,24 @@ export class GeneralbtsmapComponent implements OnInit {
 
     
   }
+
     
-    markerDragEnd(m: marker, $event: MouseEvent) {
-      console.log('dragEnd', m, $event);
+
+
+    dragEnded($event: MouseEvent){
+
+    var lat =  $event.coords.lat;
+     var lng =  $event.coords.lng;
+     this.markers[0].lat = this.lat= lat;
+     this.markers[0].lng = this.lng =lng;
+    
+      this.valueChanged();
+
     }
 getm():string{
   return "bmarker.png";
 }
-   @Input() public markers: marker[];
+  
 
 }
 

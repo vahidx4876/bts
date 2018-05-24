@@ -45,9 +45,9 @@
           [latitude]="m.lat"
           [longitude]="m.lng"
           [label]="m.label"
-          [markerDraggable]="m.draggable"
-         
-          (dragEnd)="markerDragEnd(m, $event)">
+          [markerDraggable]="true"
+       
+          (dragEnd)="dragEnded($event)">
           
         <agm-info-window #infoWindow >
           <h3>
@@ -59,12 +59,12 @@
         
       </agm-marker>
       
-      <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
+      <!-- <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
           [radius]="5000"
           [fillColor]="'red'"
           [circleDraggable]="true"
           [editable]="true">
-      </agm-circle>
+      </agm-circle> -->
     
     </agm-map>
     </div>

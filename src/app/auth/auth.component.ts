@@ -1,5 +1,6 @@
 import { Component, OnInit ,Input} from '@angular/core';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
+import { RealTimeService } from '../modules/shared/services/RealTimeService';
 
 
 
@@ -25,12 +26,29 @@ export class AuthComponent implements OnInit{
    this.visibility = this.isVisible ? 'shown' : 'hidden';
   }
 
-	constructor(private media: ObservableMedia) { }
+	constructor(private media: ObservableMedia , private _realTimeService : RealTimeService) {
+        
+        this._realTimeService.BrodaCast();
+         // var host = 
+         this._realTimeService.mqttLauncher('wss://btsmanager.net:8885','vahid','1234');
+         this._realTimeService.mattSubscriber('test'); 
+     //    this._realTimeService.mqttPublisher('test','hello to you');
+        
+
+    }
 
 	ngOnInit() {
+
+
 		this.media.subscribe((mediaChange: MediaChange) => {
             this.toggleView();
         });
+
+        //For big vision
+        this.sideNavMode = 'side';
+        this.sideNavOpened = false;
+        this.matDrawerOpened = true;
+        this.matDrawerShow = true;
 	}
     getRouteAnimation(outlet) {
 

@@ -6,6 +6,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { Router } from '@angular/router'
 import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { PlayerService } from './player.service';
+import { NotificationService } from './NotificationService';
+import { RealTimeService } from './RealTimeService';
 
 
 @NgModule({
@@ -25,7 +27,7 @@ export class ServicesModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: ServicesModule,
-      providers: [ AuthService , PlayerService ]
+      providers: [ AuthService , PlayerService , NotificationService , RealTimeService ]
     };
   }
 
