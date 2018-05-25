@@ -9,4 +9,5 @@ export class Notification {
     btsID : string;
     lat : number;
     lng : number;
+    player : Howl
   }

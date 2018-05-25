@@ -82,6 +82,9 @@ mqttPublisher(topic:string , payload : string){
       reconnectPeriod: 1000,
       connectTimeout: 30 * 1000,
       topic : "test",
+      qos: 2,
+      retain: true,
+      
       // topic: 'WillMsg',
       // payload: 'Connection Closed abnormally..!',
       // retain: false,

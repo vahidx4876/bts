@@ -53,6 +53,7 @@
     "ng2-page-transition": "^1.1.0",
     "ngx-perfect-scrollbar": "^5.0.5",
     "ngx-quill": "^2.0.4",
+    "rx": "^4.1.0",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.1.0",
     "screenfull": "^3.3.2",

@@ -10,6 +10,8 @@ export class NotificationService {
 
   private subject = new Subject<any>();
 
+  private alarmSubject = new Subject<any>();
+
   sendMessage(message: Notification) {
       this.subject.next(message);
   }
@@ -21,6 +23,17 @@ export class NotificationService {
   getMessage(): Observable<any> {
       return this.subject.asObservable();
   }
+
+  // After Alaram  Raides 
+
+setAlarmMessage(): Observable<any> {
+    return this.alarmSubject.asObservable();
+}
+
+sendAlarmMessage(message: Notification) {
+    this.alarmSubject.next(message);
+}
+
 
 }
 

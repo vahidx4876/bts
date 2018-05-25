@@ -35,7 +35,7 @@ export class AdddeviceboardComponent implements OnInit {
    lngc : number = 51.404343;
 
   // just an interface for type safety.
-  public markers: marker[] = [
+  public markers = [
     {
       lat: 350.715298,
       lng: 501.404343,

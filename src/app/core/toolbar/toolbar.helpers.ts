@@ -6,6 +6,6 @@ export const ToolbarHelpers = {
 		photoURL: 'assets/images/avatars/user.jpg',
 		currentUserName: 'Akam User'
 	},
-	player :[]
+	
 };
 

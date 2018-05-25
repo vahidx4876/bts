@@ -27,14 +27,6 @@ export class ToolbarComponent implements OnInit , OnDestroy {
      notify : Notification
   	constructor(private _authService : AuthService ,private _playerService : PlayerService , private messageService: NotificationService ,) { 
 	
-			this.subscription = this.messageService.getMessage().subscribe(message => {
-			 this.notify =<Notification> message;
-			var howl = _playerService.firePlayer(this.notify.alarmUrl,true,1.0);	 
-			howl.play();
-			// this.notification = message; 
-			 this.toolbarHelpers.player.push(howl);
-			 this.toolbarHelpers.notifications.push(message);
-		 });
 
 		
 			
@@ -42,6 +34,14 @@ export class ToolbarComponent implements OnInit , OnDestroy {
 
 
   	ngOnInit() {
+		this.subscription = this.messageService.getMessage().subscribe(message => {
+			this.notify =<Notification> message;
+		   var howl = this._playerService.firePlayer(this.notify.alarmUrl,true,1.0);	 
+		   howl.play();
+		   // this.notification = message; 
+		   this.notify.player = howl;
+		   this.toolbarHelpers.notifications.push(this.notify);
+		});
 
 
 		}
