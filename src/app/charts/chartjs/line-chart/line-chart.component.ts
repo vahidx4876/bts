@@ -33,7 +33,7 @@ export class LineChartComponent implements OnInit {
             },
             options: {
                 legend: {
-                    display: false
+                    display: true
                 },
                 elements: {
                     line: {

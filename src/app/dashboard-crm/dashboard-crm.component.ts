@@ -7,6 +7,9 @@ import { Subscription } from 'rxjs/Subscription';
 import { Notification } from '../modules/shared/services/ServicesModels';
 import { AgmMap, AgmCircle } from '@agm/core';
 import { interval } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/takeWhile';
+import 'rxjs/add/observable/timer'
 
 
 @Component({
@@ -16,6 +19,9 @@ import { interval } from 'rxjs';
 })
 export class DashboardCrmComponent implements OnInit ,  OnDestroy  {
 
+  
+  alives: boolean[]=[];
+  alive: boolean;
   _this: this;
   alarmCallbackSubscription: Subscription;
   calbackNotify: Notification;
@@ -38,7 +44,7 @@ export class DashboardCrmComponent implements OnInit ,  OnDestroy  {
    
 
 
-    constructor(private _employeeService:BTSDashService , private _playerService : PlayerService , private messageService: NotificationService) {
+    constructor(private _employeeService:BTSDashService , private messageService: NotificationService) {
 
 
 
@@ -60,6 +66,7 @@ export class DashboardCrmComponent implements OnInit ,  OnDestroy  {
 
    setMarkers(markers : any , index : any) {
 
+ markers[index].alives = true;
 markers[index].iconUrl = "https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_redA.png";
 
 // Subscribe to begin publishing values
@@ -84,11 +91,12 @@ markers[index].fillOpacity = circleOption.fillOpacity;
 markers[index].radius = circleOption.radius;
 markers[index].strokeOpacity = circleOption.strokeOpacity;
 markers[index].strokeColor = circleOption.strokeColor;
-const secondsCounter = interval(15);
+var test = this.alives[index];
+Observable.timer(0,25)
+.takeWhile(() =>  markers[index].alives) // only fires when component is alive
+.subscribe(() => {
 
-secondsCounter.subscribe( (n) =>{
-  
-      
+
   var radius = markers[index].radius;
         
   if ((radius > rMax) || (radius < rMin)) {
@@ -101,9 +109,15 @@ secondsCounter.subscribe( (n) =>{
   markers[index].radius =  circleOption.radius ;
   markers[index].fillOpacity = circleOption.fillOpacity;
 
-}
+});
 
-);     
+
+// const secondsCounter = interval(15);
+
+// secondsCounter.subscribe( (n) =>{
+  
+// }
+// );     
 
      }
 
@@ -113,15 +127,30 @@ secondsCounter.subscribe( (n) =>{
 
 
         if(message != null){
+        var  checkStatus = [];
           this.calbackNotify = <Notification> message;
          var btsN =  this.calbackNotify.btsName ;
          for (var _i = 0; _i <this.markers.length; _i++) {
           var marker = this.markers[_i];
    
           if(marker.label === btsN){
-            this.markers[_i].iconUrl = "https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_greenA.png";
+           
+            if( message.btsCount> 1){
+
+              this.markers[_i].alives = true;
+              this.markers[_i].iconUrl = "https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_redA.png";
+          
+             }else  {
+              this.markers[_i].alives = false;
+              this.markers[_i].iconUrl = "https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_greenA.png";
+              this.markers[_i].radius = 0;
+             }
           }
          }
+
+      
+   
+
         }
         
 
@@ -137,12 +166,11 @@ secondsCounter.subscribe( (n) =>{
 
         for (var _i = 0; _i <this.markers.length; _i++) {
           var marker = this.markers[_i];
-          var gIndex = _i;
-        console.log(marker);
-      
+        
         var str1 = String(message.btsName);
         var str2 =String( marker.label );
         if(str1 === str2 ) {
+          
        this.setMarkers(this.markers,_i);
       }
   

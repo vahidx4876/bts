@@ -16,6 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
 import { PinTabService } from './pintab/PinTabService';
 
+import { WeatherService } from './pintab/Charts/weather.service';
+import { BtsChartJsComponent } from './pintab/Charts/bts-chart-js/bts-chart-js.component';
+
+
 
     
 
@@ -44,13 +48,14 @@ import { PinTabService } from './pintab/PinTabService';
     MatButtonModule,
     DashboardWidgetModule,
     MatPaginatorModule,
+  
     
 
 
     
   ],
-  declarations: [PintabComponent  ],
-  providers:[PinTabService]
+  declarations: [PintabComponent, BtsChartJsComponent   ],
+  providers:[PinTabService,WeatherService]
 })
 export class MappinModule {
 

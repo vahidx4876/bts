@@ -10,6 +10,7 @@ import { NotificationService } from '../../modules/shared/services/NotificationS
   styleUrls: ['./toolbar-notification.component.scss']
 })
 export class ToolbarNotificationComponent implements OnInit {
+  map: Map<string, number>;
 	cssPrefix = 'toolbar-notification';
   	isOpen: boolean = false;
     @Input() notifications = [];
@@ -26,10 +27,10 @@ export class ToolbarNotificationComponent implements OnInit {
     //     }
     // }
   	
-  	constructor(private elementRef: ElementRef , private _soundService : PlayerService  , private messageService : NotificationService) { }
+  	constructor(private elementRef: ElementRef , private messageService : NotificationService) { }
 
   	ngOnInit() {
-
+      this.map = new Map();
       
     }
     OnClick(){
@@ -44,6 +45,20 @@ export class ToolbarNotificationComponent implements OnInit {
   	}
 
 
+
+    chackStatus(btsN : string){
+
+      var counter = 0;
+      for (let i=0 ; i < this.notifications.length ; i++){
+
+     if(btsN === this.notifications[i].btsName){
+       ++counter;
+       }
+
+      }
+      this.map.set(btsN,counter);
+    }
+
     sendMessage(message : any): void {
       // send message to subscribers via observable subject
       this.messageService.sendAlarmMessage(message);
@@ -55,7 +70,12 @@ export class ToolbarNotificationComponent implements OnInit {
         if(player != null){
           player.stop();
           player.unload();
-           this.sendMessage(notification);
+
+       var btsN =   notification.btsName;
+       this.chackStatus(btsN);
+        var btsCount = this.map.get(btsN);
+      notification.btsCount = btsCount;
+      this.sendMessage(notification);
         }
      
         this.notifications.splice(index, 1);

@@ -19,10 +19,8 @@ export class AdddeviceboardComponent implements OnInit {
 
   user: string;
   isu: Issue;
-  constructor(private  _playerService :PlayerService , private _authService : AuthService){
-  //   this.user = _authService.username ;
-  // var sound =  _playerService.sound;
-  // if(sound != null) sound.stop();
+  constructor( private _authService : AuthService){
+
     this.isu = new Issue();
     this.isu.btsID = "123ewq";
     this.isu.btsName = "Test";
