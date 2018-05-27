@@ -6,7 +6,8 @@ import { LazyLoadModule } from './lazy-load/lazy-load.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { ServicesModule } from './modules/shared/services/services.module';
-
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -16,10 +17,8 @@ import { ServicesModule } from './modules/shared/services/services.module';
 
   ],
   imports: [
-
-
-  
     BrowserModule,
+    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
     LazyLoadModule,
     CoreModule,
     BrowserAnimationsModule,

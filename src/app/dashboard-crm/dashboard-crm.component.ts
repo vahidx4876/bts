@@ -4,7 +4,7 @@ import { marker } from '../components/bts/login/models/bts/MapData';
 import { PlayerService } from '../modules/shared/services/player.service';
 import { NotificationService } from '../modules/shared/services/NotificationService';
 import { Subscription } from 'rxjs/Subscription';
-import { Notification } from '../modules/shared/services/ServicesModels';
+import { BTSNotification } from '../modules/shared/services/ServicesModels';
 import { AgmMap, AgmCircle } from '@agm/core';
 import { interval } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
@@ -24,9 +24,9 @@ export class DashboardCrmComponent implements OnInit ,  OnDestroy  {
   alive: boolean;
   _this: this;
   alarmCallbackSubscription: Subscription;
-  calbackNotify: Notification;
+  calbackNotify: BTSNotification;
   subscription: Subscription;
-  notify: Notification;
+  notify: BTSNotification;
   fireAlarm: Howl;
     stroke  : string = "12";
 
@@ -128,7 +128,7 @@ Observable.timer(0,25)
 
         if(message != null){
         var  checkStatus = [];
-          this.calbackNotify = <Notification> message;
+          this.calbackNotify = <BTSNotification> message;
          var btsN =  this.calbackNotify.btsName ;
          for (var _i = 0; _i <this.markers.length; _i++) {
           var marker = this.markers[_i];
@@ -161,7 +161,7 @@ Observable.timer(0,25)
         this.subscription = this.messageService.getMessage().subscribe(message => {
 
       
-        this.notify =<Notification> message;
+        this.notify =<BTSNotification> message;
 
 
         for (var _i = 0; _i <this.markers.length; _i++) {

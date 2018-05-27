@@ -5,7 +5,7 @@ import { PlayerService } from '../../modules/shared/services/player.service';
 import { NotificationService } from '../../modules/shared/services/NotificationService';
 import { Subscription } from 'rxjs/Subscription';
 import { RealTimeService } from '../../modules/shared/services/RealTimeService';
-import { Notification } from '../../modules/shared/services/ServicesModels';
+import { BTSNotification } from '../../modules/shared/services/ServicesModels';
 import { json } from 'd3';
 @Component({
   selector: 'cdk-toolbar',
@@ -24,7 +24,7 @@ export class ToolbarComponent implements OnInit , OnDestroy {
   
 	searchOpen: boolean = false;
   toolbarHelpers = ToolbarHelpers;
-     notify : Notification
+     notify : BTSNotification
   	constructor(private _authService : AuthService ,private _playerService : PlayerService , private messageService: NotificationService ,) { 
 	
 
@@ -35,7 +35,7 @@ export class ToolbarComponent implements OnInit , OnDestroy {
 
   	ngOnInit() {
 		this.subscription = this.messageService.getMessage().subscribe(message => {
-			this.notify =<Notification> message;
+			this.notify =<BTSNotification> message;
 		   var howl = this._playerService.firePlayer(this.notify.alarmUrl,true,1.0);	 
 		   howl.play();
 		   // this.notification = message; 

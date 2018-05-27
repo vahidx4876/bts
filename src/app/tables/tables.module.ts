@@ -82,10 +82,8 @@ export function highlightJsFactory(): any {
     TablesRouterModule
   ],
   declarations: [
-    AddDialogComponent,
-    EditDialogComponent,
-    DeleteDialogComponent,
-    CrudtableComponent,
+
+  
    FilterTableComponent,
    FeatureTableComponent,
    ResponsiveTableComponent,
@@ -93,9 +91,7 @@ export function highlightJsFactory(): any {
    providers: [
     DataService
   ],  entryComponents: [
-    AddDialogComponent,
-    EditDialogComponent,
-    DeleteDialogComponent
+
   ],
 
   exports: [

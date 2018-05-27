@@ -2,7 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { NotificationService } from './NotificationService';
-import { Notification } from './ServicesModels';
+import { BTSNotification } from './ServicesModels';
 import { not } from '@angular/compiler/src/output/output_ast';
 import * as _mqtt from 'mqtt'
 @Injectable()
@@ -44,7 +44,7 @@ public BrodaCast(){
   
 mqttPublisher(topic:string , payload : string){
     if(this.client != null){
-        this.client.publish(topic,payload , { qos: 0, retain: false })
+        this.client.publish(topic,payload , { qos: 2, retain: true })
         this.client.on('message', function (topic, message, packet) {
             //Get recived message ......published
             console.log('Received Message published := ' + message.toString() + '\nOn topic:= ' + topic)
@@ -55,12 +55,20 @@ mqttPublisher(topic:string , payload : string){
     mattSubscriber(topic:string){
         if(this.client != null){
             var _this = this;
-            this.client.subscribe(topic, { qos: 0 })
+            this.client.subscribe(topic, { qos: 2 })
             this.client.on('message', function (topic, message, packet) {
                 //Get recived message ...... subscribed
                 console.log('Received Message subscribed := ' + message.toString() + '\nOn topic:= ' + topic)
-                var obj = JSON.parse(message.toString());
-                _this.sendMessage(obj);
+               
+                try {
+                    var obj = JSON.parse(message.toString());
+                    var isValid = obj as BTSNotification;
+                    if(isValid)
+                    _this.sendMessage(obj);
+                } catch(e) {
+                    alert(e); // error in the above string (in this case, yes)!
+                }
+             
               })
         }
      
@@ -83,7 +91,7 @@ mqttPublisher(topic:string , payload : string){
       connectTimeout: 30 * 1000,
       topic : "test",
       qos: 2,
-      retain: true,
+      retain: false,
       
       // topic: 'WillMsg',
       // payload: 'Connection Closed abnormally..!',

@@ -1,4 +1,4 @@
-export class Notification {
+export class BTSNotification {
     id: string;
     title: string;
     time: string;

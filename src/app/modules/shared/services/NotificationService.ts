@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs/Subject';
-import { Notification } from './ServicesModels';
+import { BTSNotification } from './ServicesModels';
 
 @Injectable()
 export class NotificationService {
@@ -12,7 +12,7 @@ export class NotificationService {
 
   private alarmSubject = new Subject<any>();
 
-  sendMessage(message: Notification) {
+  sendMessage(message: BTSNotification) {
       this.subject.next(message);
   }
 

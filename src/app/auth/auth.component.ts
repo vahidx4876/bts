@@ -30,8 +30,8 @@ export class AuthComponent implements OnInit{
         
         this._realTimeService.BrodaCast();
          // var host = 
-         this._realTimeService.mqttLauncher('wss://btsmanager.net:8885','vahid','1234');
-         this._realTimeService.mattSubscriber('test'); 
+         this._realTimeService.mqttLauncher('wss://btsmanager.net:8885','amin','1234');
+      this._realTimeService.mattSubscriber('test'); 
      //    this._realTimeService.mqttPublisher('test','hello to you');
         
 

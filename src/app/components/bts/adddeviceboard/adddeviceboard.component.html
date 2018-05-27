@@ -8,7 +8,7 @@
 
 			<div fxLayout="row"   fxLayout.lt-sm="column"  fxLayoutGap="10px " class="generalclass"  >
      
-					<div   [class.mat-elevation-z2]="!isActive" [class.mat-elevation-z8]="isActive" fxFlex="30" fxFlex.lt-md="50" fxFlex.lt-sm="100" >
+					<div   [class.mat-elevation-z2]="true" [class.mat-elevation-z8]="true" fxFlex="30" fxFlex.lt-md="50" fxFlex.lt-sm="100" >
 		  
 						  <form class="example-form">
 						  
@@ -44,7 +44,7 @@
 						   </form>
 					  
 					</div>
-					<div  [class.mat-elevation-z2]="!isActive" [class.mat-elevation-z8]="isActive"  fxFlex="70" fxFlex.lt-md="50" style="background: white" fxFlex.lt-sm="100" >
+					<div  [class.mat-elevation-z4]="true" [class.mat-elevation-z8]="true"  fxFlex="70" fxFlex.lt-md="50" style="background: white" fxFlex.lt-sm="100" >
 					  
 						  <app-generalbtsmap [markers]="markers" (valueChange)="displayCounter($event)" [lat]="latc" [lng]="lngc"></app-generalbtsmap>
 					</div>

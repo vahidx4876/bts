@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, HostListener, ElementRef } from '@angular/core';
 import { PlayerService } from '../../modules/shared/services/player.service';
 import { RealTimeService } from '../../modules/shared/services/RealTimeService';
-import { Notification } from '../../modules/shared/services/ServicesModels';
+import { BTSNotification } from '../../modules/shared/services/ServicesModels';
 import { NotificationService } from '../../modules/shared/services/NotificationService';
 
 @Component({

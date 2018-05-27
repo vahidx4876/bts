@@ -18,9 +18,9 @@
             </mat-drawer>
             <mat-drawer-content style="overflow: hidden;">
 
-                <cdk-toolbar [sidenav]="sidenav" [drawer]="drawer" [sidebar]="sidenav2" [matDrawerShow]="matDrawerShow" style="z-index: 500"></cdk-toolbar>
-
-
+                <cdk-toolbar [sidenav]="sidenav" [drawer]="drawer"  [matDrawerShow]="matDrawerShow" style="z-index: 500"></cdk-toolbar>
+<!-- 
+[sidebar]="sidenav2" -->
                 <perfect-scrollbar  style="height: calc(100% - 33px);">
                     <div  style="height: 100%;">
                       <router-outlet #route="outlet"></router-outlet>
